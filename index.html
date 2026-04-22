@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DF Soluções - Experiência Digital Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --roxo-escuro: #0F0520;
+            --roxo-vibrante: #8B5CF6;
+            --magenta: #C026D3;
+            --branco: #FFFFFF;
+            --cinza-escuro: #1A1A2E;
+            --texto-corpo: #D1D5DB;
+            --borda-sutil: rgba(139, 92, 246, 0.15);
+            --glass: rgba(26, 26, 46, 0.6);
+            --neon-glow: 0 0 15px rgba(192, 38, 211, 0.3);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+        body {
+            background-color: #05010B;
+            color: var(--texto-corpo);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at top center, rgba(109, 40, 217, 0.15) 0%, #05010B 80%);
+        }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+
+        /* HERO */
+        .hero { text-align: center; padding: 80px 20px 40px; }
+        .header-tag {
+            display: inline-block; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3);
+            color: var(--roxo-vibrante); padding: 8px 24px; border-radius: 50px; font-weight: 700;
+            font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 20px;
+            box-shadow: var(--neon-glow);
+        }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 5vw, 60px); font-weight: 900;
+        color: var(--branco); text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--roxo-vibrante), var(--magenta));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* PRICING TABLE */
+        .pricing-table { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 60px 0 100px; align-items: stretch; }
+        .plan-card { background: var(--cinza-escuro); border: 1px solid var(--borda-sutil); border-radius: 24px;
+        padding: 40px 25px; position: relative; transition: all 0.4s ease; display: flex; flex-direction: column; }
+        .plan-card:hover { transform: translateY(-10px); border-color: var(--roxo-vibrante); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .plan-card.highlight { border: 2px solid var(--roxo-vibrante); background: linear-gradient(180deg, #1A1A2E 0%, #0F0520 100%); }
+        .plan-card.premium { border: 2px solid var(--magenta); }
+
+        .plan-header { text-align: center; margin-bottom: 25px; }
+        .plan-name { font-family: 'Montserrat', sans-serif; font-weight: 800; color: white; font-size: 22px; text-transform: uppercase; margin-bottom: 10px; }
+        .plan-price { font-family: 'Montserrat', sans-serif; font-size: 38px; font-weight: 900; color: var(--roxo-vibrante); }
+        .plan-price small { font-size: 14px; opacity: 0.7; }
+        .plan-card.premium .plan-price { color: var(--magenta); }
+        .plan-desc { font-size: 13px; color: #9CA3AF; margin-top: 15px; min-height: 40px; text-align: center; }
+
+        .feature-list { list-style: none; flex-grow: 1; margin-bottom: 25px; }
+        .feature-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; margin-bottom: 12px; line-height: 1.4; color: #E5E7EB; }
+        .feature-item i { font-size: 14px; margin-top: 2px; }
+        .feature-item .fa-circle-check { color: var(--roxo-vibrante); }
+        .plan-card.premium .feature-item .fa-circle-check { color: var(--magenta); }
+        .feature-item.disabled { opacity: 0.2; text-decoration: line-through; }
+        .exclusive-box { background: rgba(192, 38, 211, 0.1); border: 1px dashed var(--magenta); padding: 8px; border-radius: 8px; margin: 0 -5px; }
+
+        .plan-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, var(--roxo-vibrante), var(--magenta)); color: white; font-size: 10px; font-weight: 900; padding: 4px 15px; border-radius: 20px; white-space: nowrap; }
+
+        .btn-listen { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--borda-sutil); color: var(--branco); width: 100%; padding: 14px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; transition: 0.3s; margin-bottom: 12px; }
+        .btn-listen:hover { background: rgba(139, 92, 246, 0.1); }
+        .btn-listen.playing { background: var(--magenta) !important; color: white !important; animation: pulse 1.5s infinite; }
+
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+
+        .cta-btn { display: block; width: 100%; padding: 16px; text-align: center; border-radius: 12px; font-family: 'Montserrat', sans-serif; font-weight: 800; text-decoration: none; margin-top: 10px; border: none; cursor: pointer; text-transform: uppercase; font-size: 12px; transition: 0.3s;}
+        .btn-outline { border: 1px solid var(--roxo-vibrante); color: var(--roxo-vibrante); background: transparent; }
+        .btn-solid { background: linear-gradient(90deg, var(--roxo-vibrante), var(--magenta)); color: white; }
+
+        /* --- ESTILOS DO RASTREAMENTO WHATSAPP --- */
+        .tracking-section {
+            background: linear-gradient(135deg, rgba(15, 5, 32, 0.9) 0%, rgba(26, 26, 46, 0.4) 100%);
+            border: 1px solid var(--borda-sutil);
+            border-radius: 40px; padding: 70px 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative; overflow: hidden;
+            margin-bottom: 80px;
+        }
+        .tracking-section::before {
+            content: ''; position: absolute; top: -100px; left: -100px; width: 300px; height: 300px;
+            background: var(--roxo-vibrante); filter: blur(120px); opacity: 0.15; z-index: 0;
+        }
+        
+        .tracking-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; position: relative; z-index: 1;
+        }
+        
+        .track-info h2 { font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 900; color: white; margin-bottom: 20px; line-height: 1.2; text-transform: uppercase;}
+        .track-info h2 span { color: #25D366; /* Verde WhatsApp */ }
+        .track-info p { color: #9CA3AF; font-size: 16px; line-height: 1.7; margin-bottom: 25px; }
+        
+        .track-bullets { list-style: none; margin-bottom: 30px; padding: 0; }
+        .track-bullets li { display: flex; align-items: flex-start; gap: 12px; color: #D1D5DB; margin-bottom: 15px; font-size: 14px; line-height: 1.5; }
+        .track-bullets i { color: var(--magenta); font-size: 18px; margin-top: 2px; }
+
+        .track-interactive { background: var(--glass); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 30px; }
+        .ad-triggers { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .ad-btn {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--borda-sutil);
+            color: white; padding: 10px 15px; border-radius: 8px; font-size: 12px; cursor: pointer;
+            transition: 0.3s; flex: 1; min-width: 120px; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: bold;
+        }
+        .ad-btn:hover { background: rgba(139, 92, 246, 0.2); border-color: var(--roxo-vibrante); transform: translateY(-2px); }
+        .ad-btn i { margin-right: 5px; color: var(--magenta); }
+
+        .wpp-mockup {
+            background: #0b141a; /* Fundo Wpp Dark */
+            border-radius: 16px; border: 4px solid #1f2c34;
+            height: 350px; display: flex; flex-direction: column; overflow: hidden; position: relative;
+        }
+        .wpp-header { background: #202c33; padding: 12px 15px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #111b21;}
+        .wpp-avatar { width: 35px; height: 35px; background: #6b7280; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; }
+        .wpp-header-info { display: flex; flex-direction: column; }
+        .wpp-name { color: #e9edef; font-size: 14px; font-weight: bold; font-family: sans-serif; }
+        .wpp-status { color: #8696a0; font-size: 11px; font-family: sans-serif; }
+        
+        .wpp-body { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); background-size: cover; opacity: 0.9;}
+        
+        .msg-bubble {
+            background: #202c33; color: #e9edef; padding: 10px 12px; border-radius: 8px; border-top-left-radius: 0;
+            font-size: 13px; font-family: sans-serif; max-width: 85%; align-self: flex-start;
+            position: relative; animation: popIn 0.3s ease-out forwards;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3); line-height: 1.4;
+        }
+        .msg-tag { display: block; background: rgba(37, 211, 102, 0.1); color: #25D366; font-size: 10px; padding: 4px 6px; border-radius: 4px; margin-bottom: 5px; font-weight: bold; border: 1px dashed rgba(37, 211, 102, 0.3);}
+        
+        @keyframes popIn { 0% { opacity: 0; transform: translateY(10px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+
+        /* IA SECTION */
+        .ia-section { background: var(--glass); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 40px; padding: 60px 40px; margin-bottom: 80px; backdrop-filter: blur(15px); }
+        .ia-section h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; text-align: center; margin-bottom: 40px; color: white; }
+        .ia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .ia-card { background: rgba(15, 5, 32, 0.7); padding: 35px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); }
+        .ia-card h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; margin-bottom: 15px; color: white; display: flex; align-items: center; gap: 10px; }
+        .ia-card h3 i { color: var(--roxo-vibrante); }
+        .ia-input { width: 100%; background: #05010B; border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 12px; padding: 15px; color: white; margin-bottom: 20px; resize: none; outline: none; font-family: inherit; }
+        .ia-select { width: 100%; background: #05010B; border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 12px; padding: 12px; color: white; margin-bottom: 20px; outline: none; }
+
+        /* TOOLS SECTION (AGENDA & ROI) */
+        .tools-section { margin-bottom: 80px; }
+        .tools-header { text-align: center; margin-bottom: 40px; }
+        .tools-header h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 900; color: white; text-transform: uppercase; }
+        .tools-header h2 span { color: var(--roxo-vibrante); }
+        .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .tool-card { background: var(--glass); border: 1px solid var(--borda-sutil); border-radius: 30px; padding: 40px; backdrop-filter: blur(15px); }
+        .tool-card h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; color: white; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+        .tool-card h3 i { color: var(--magenta); }
+        .tool-desc { color: #9CA3AF; font-size: 14px; margin-bottom: 25px; line-height: 1.6; }
+        .agenda-slot { background: rgba(15, 5, 32, 0.8); border-left: 4px solid rgba(255,255,255,0.1); margin-bottom: 12px; padding: 18px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s ease; }
+        .agenda-time { font-weight: bold; color: white; font-family: 'Montserrat', sans-serif; }
+        .agenda-status { color: #6B7280; font-size: 14px; }
+        .agenda-slot.ocupado { border-left-color: var(--magenta); background: rgba(192, 38, 211, 0.15); transform: scale(1.02); }
+        .agenda-slot.ocupado .agenda-status { color: var(--magenta); font-weight: bold; }
+        .roi-slider-container { margin: 25px 0; }
+        .roi-val-highlight { font-size: 38px; color: var(--magenta); font-family: 'Montserrat', sans-serif; font-weight: 900; display: block; margin-top: 5px; }
+        input[type=range].df-slider { width: 100%; height: 8px; border-radius: 4px; background: #05010B; outline: none; -webkit-appearance: none; margin-top: 15px; border: 1px solid var(--borda-sutil); }
+        input[type=range].df-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, var(--roxo-vibrante), var(--magenta)); cursor: pointer; border: 2px solid white; }
+        .roi-result-box { background: rgba(15, 5, 32, 0.8); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+        .roi-total { font-size: 28px; font-weight: 900; color: white; font-family: 'Montserrat', sans-serif; margin: 5px 0 15px; }
+        .roi-comparativo { border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 15px; font-size: 14px; color: #D1D5DB; line-height: 1.6; }
+
+        /* LANDING PAGE SECTION */
+        .lp-section { background: linear-gradient(180deg, rgba(15,5,32,0) 0%, rgba(26,26,46,0.5) 100%); border: 1px solid rgba(192, 38, 211, 0.2); border-radius: 40px; padding: 70px 40px; margin-bottom: 80px; text-align: center; }
+        .lp-section h2 { font-family: 'Montserrat', sans-serif; font-size: 38px; font-weight: 900; margin-bottom: 15px; color: white; text-transform: uppercase; }
+        .lp-section h2 span { color: var(--magenta); }
+        .lp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .lp-card { background: rgba(15, 5, 32, 0.8); padding: 40px 30px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; }
+        .lp-card:hover { transform: translateY(-10px); border-color: var(--magenta); }
+        .lp-card i { font-size: 38px; color: var(--magenta); margin-bottom: 20px; display: block; }
+        .lp-card h4 { font-family: 'Montserrat', sans-serif; font-size: 18px; margin-bottom: 15px; color: white; }
+        .lp-card p { font-size: 14px; line-height: 1.6; color: #9CA3AF; }
+
+        /* INFO & PAYMENT */
+        .info-container { display: grid; grid-template-columns: 1.2fr 1.2fr; gap: 30px; margin-bottom: 80px; }
+        .info-box { background: rgba(26, 26, 46, 0.6); border: 1px solid var(--borda-sutil); border-radius: 30px; padding: 45px; }
+        .info-box h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; color: white; margin-bottom: 35px; display: flex; align-items: center; gap: 15px; text-transform: uppercase; }
+        .info-box h3 i { color: #facc15; }
+        .info-item { display: flex; gap: 15px; margin-bottom: 25px; align-items: flex-start; }
+        .info-dot { width: 8px; height: 8px; background: var(--magenta); border-radius: 50%; margin-top: 6px; flex-shrink: 0; box-shadow: 0 0 10px var(--magenta); }
+        .info-item p { font-size: 14px; line-height: 1.7; color: #D1D5DB; }
+        .exclusive-alert { background: rgba(192, 38, 211, 0.1); border: 1px solid var(--magenta); padding: 20px; border-radius: 15px; margin-top: 20px; display: flex; gap: 10px; align-items: center;}
+        
+        .payment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px; }
+        .payment-item { background: rgba(0,0,0,0.3); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .payment-item i { font-size: 24px; color: var(--roxo-vibrante); margin-bottom: 15px; display: block; }
+        .payment-item p { font-size: 13px; line-height: 1.5; color: #D1D5DB; margin: 0; }
+
+        /* MODAL */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(15px); z-index: 3000; align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { background: var(--roxo-escuro); max-width: 750px; width: 100%; border-radius: 40px; border: 1px solid var(--roxo-vibrante); padding: 50px; position: relative; box-shadow: 0 0 100px rgba(139, 92, 246, 0.2); max-height: 85vh; display: flex; flex-direction: column; }
+        .modal-header { font-family: 'Montserrat', sans-serif; font-weight: 900; color: white; font-size: 26px; margin-bottom: 25px; }
+        #ai-response { max-height: 400px; overflow-y: auto; font-size: 16px; line-height: 1.8; color: #E5E7EB; text-align: left; }
+        .close-btn { position: absolute; top: 30px; right: 30px; color: white; cursor: pointer; font-size: 28px; }
+
+        @media (max-width: 1000px) { .pricing-table, .ia-grid, .lp-grid, .info-container, .tools-grid, .tracking-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 38px; } .payment-grid { grid-template-columns: 1fr; } }
+
+        /* --- CRM E FUNIL DE VENDAS (ATUALIZADO E MODERNO) --- */
+        .crm-section {
+            background: linear-gradient(180deg, rgba(15, 5, 32, 0) 0%, rgba(26, 26, 46, 0.5) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 40px; padding: 70px 40px; margin-bottom: 80px; text-align: center;
+        }
+        .crm-header-tag {
+            display: inline-block; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #F59E0B; padding: 6px 18px; border-radius: 50px; font-weight: 700; font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase; font-size: 11px; margin-bottom: 20px; letter-spacing: 1px;
+        }
+        .crm-section h2 { font-family: 'Montserrat', sans-serif; font-size: 38px; font-weight: 900; margin-bottom: 15px; color: white; text-transform: uppercase; }
+        .crm-section h2 span { color: var(--roxo-vibrante); }
+        .crm-sub { color: #9CA3AF; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        
+        /* O Kanban Board - Fundo Mais Elegante e Moderno */
+        .kanban-board {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; 
+            background: linear-gradient(145deg, rgba(20, 10, 35, 0.8) 0%, rgba(10, 5, 20, 0.9) 100%); 
+            padding: 30px; border-radius: 24px; 
+            border: 1px solid rgba(139, 92, 246, 0.3); 
+            box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.05), 0 15px 35px rgba(0,0,0,0.4);
+            margin-bottom: 30px; position: relative; overflow: hidden;
+        }
+        
+        /* Efeito de luz no fundo do board */
+        .kanban-board::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(192, 38, 211, 0.05) 0%, transparent 60%); pointer-events: none;
+        }
+
+        /* Colunas em tons diferentes de roxo */
+        .kanban-col { 
+            border-radius: 16px; padding: 18px; min-height: 280px; display: flex; flex-direction: column; gap: 12px; 
+            border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease; position: relative; z-index: 1;
+        }
+        
+        /* Cores Sequenciais do Funil (Do Escuro para o Vibrante) */
+        #col-contato { background: rgba(26, 15, 46, 0.9); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        #col-lead { background: rgba(45, 20, 75, 0.9); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        #col-agendou { background: rgba(65, 25, 105, 0.9); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+        .kanban-col:hover { transform: translateY(-3px); border-color: rgba(139, 92, 246, 0.4); }
+
+        .kanban-header { font-family: 'Montserrat', sans-serif; font-weight: 700; color: white; font-size: 14px; text-transform: uppercase; padding-bottom: 15px; border-bottom: 2px solid rgba(255,255,255,0.05); margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .kanban-count { background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 10px; font-size: 11px; }
+        
+        .k-card { background: #1a1a2e; padding: 15px; border-radius: 8px; border-left: 4px solid var(--roxo-vibrante); text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); opacity: 1; transform: scale(1); border-right: 1px solid rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);}
+        .k-card.moving { transform: scale(0.95); opacity: 0.5; }
+        .k-card-title { color: white; font-weight: bold; font-size: 13px; margin-bottom: 5px; display: flex; justify-content: space-between;}
+        .k-card-desc { color: #9CA3AF; font-size: 11px; }
+        .k-tag { background: rgba(192, 38, 211, 0.2); color: var(--magenta); padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+
+        .crm-results { display: flex; justify-content: space-around; background: rgba(37, 211, 102, 0.05); border: 1px dashed #25D366; padding: 20px; border-radius: 15px; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;}
+        .crm-results span { color: #25D366; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; }
+
+        @media (max-width: 900px) { .kanban-board { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <section class="hero">
+            <div class="header-tag">Consultoria Estratégica Independente</div>
+            <h1>Acelere sua Clínica com<br><span>Estratégia DF Soluções</span></h1>
+            <p style="font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.6;">O motor de inteligência comercial que identifica o plano perfeito para lotar sua agenda com pacientes particulares de alto ticket.</p>
+        </section>
+
+        <section class="pricing-table">
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h4 class="plan-name">Lite Orgânico</h4>
+                    <div class="plan-price"><small>R$</small> 1.200<small>/mês</small></div>
+                    <div class="plan-desc">O essencial para construir uma base sólida e engajada nas redes sociais.</div>
+                </div>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Gestão de Instagram e Facebook</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Criação de Artes Profissionais</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Edição de Vídeos (Reels/Shorts)</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Atendimento em horário comercial</li>
+                    <li class="feature-item disabled"><i class="fa-solid fa-circle-xmark"></i> Gestão de Tráfego Pago</li>
+                    <li class="feature-item disabled"><i class="fa-solid fa-circle-xmark"></i> Mentoria Comercial</li>
+                </ul>
+                <button class="btn-listen" onclick="playPlanVoice('lite_org', this)">
+                    <i class="fa-solid fa-volume-high"></i> OUVIR BENEFÍCIOS
+                </button>
+                <button class="cta-btn btn-outline">Selecionar Lite Orgânico</button>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h4 class="plan-name">Lite Tráfego Pago</h4>
+                    <div class="plan-price"><small>R$</small> 1.200<small>/mês</small></div>
+                    <div class="plan-desc">Focado 100% em conversão e anúncios para atrair pacientes particulares.</div>
+                </div>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Gestão de Face/Insta Ads</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Edição de Vídeos para Anúncios</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Estratégia de Captação Ativa</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Atendimento em horário comercial</li>
+                    <li class="feature-item disabled"><i class="fa-solid fa-circle-xmark"></i> Gestão do Feed Orgânico</li>
+                    <li class="feature-item disabled"><i class="fa-solid fa-circle-xmark"></i> Mentoria Comercial</li>
+                </ul>
+                <button class="btn-listen" onclick="playPlanVoice('lite_ads', this)">
+                    <i class="fa-solid fa-volume-high"></i> OUVIR BENEFÍCIOS
+                </button>
+                <button class="cta-btn btn-outline">Selecionar Lite Ads</button>
+            </div>
+
+            <div class="plan-card highlight">
+                <div class="plan-badge">O Mais Escolhido</div>
+                <div class="plan-header">
+                    <h4 class="plan-name">Plano Prata</h4>
+                    <div class="plan-price"><small>R$</small> 1.900<small>/mês</small></div>
+                    <div class="plan-desc">O equilíbrio perfeito: alcance orgânico unido ao poder do tráfego pago.</div>
+                </div>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> <strong>Tudo do Plano Lite Orgânico</strong></li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Gestão de Face/Insta Ads</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Reuniões Semanais de Alinhamento</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Atendimento Full Time Comercial</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Criação de Apoio Offline</li>
+                </ul>
+                <button class="btn-listen" onclick="playPlanVoice('prata', this)">
+                    <i class="fa-solid fa-volume-high"></i> OUVIR BENEFÍCIOS
+                </button>
+                <button class="cta-btn btn-solid">Quero o Plano Prata</button>
+            </div>
+
+            <div class="plan-card premium">
+                <div class="plan-badge">Dominância Local</div>
+                <div class="plan-header">
+                    <h4 class="plan-name">Plano Premium</h4>
+                    <div class="plan-price"><small>R$</small> 2.500<small>/mês</small></div>
+                    <div class="plan-desc">A solução definitiva e multiplataforma para dominar o seu mercado.</div>
+                </div>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> <strong>Todos os itens do Prata</strong></li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Google, Meta e TikTok Ads</li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Dashboard em Tempo Real</li>
+                    <li class="feature-item exclusive-box"><i class="fa-solid fa-infinity" style="color:var(--magenta)"></i> <strong>Solicitações ILIMITADAS</strong></li>
+                    <li class="feature-item"><i class="fa-solid fa-circle-check"></i> Offline Completo</li>
+                </ul>
+                <button class="btn-listen" onclick="playPlanVoice('premium', this)">
+                    <i class="fa-solid fa-volume-high"></i> OUVIR BENEFÍCIOS
+                </button>
+                <button class="cta-btn btn-solid" style="background:#111; border:1px solid var(--magenta)">Dominar Mercado</button>
+            </div>
+        </section>
+
+        <section class="tracking-section">
+            <div class="tracking-grid">
+                <div class="track-info">
+                    <h2>Inteligência de <span>WhatsApp</span></h2>
+                    <p>O fim do "Como você nos conheceu?". Nós implementamos um tagueamento de precisão (UTMs e links dinâmicos) para que a sua equipe comercial saiba exatamente de qual anúncio o paciente está vindo, antes mesmo de dar "Bom dia".</p>
+                    
+                    <ul class="track-bullets">
+                        <li><i class="fa-solid fa-bullseye"></i> <strong>Atribuição Exata:</strong> Se fechar um protocolo de 15 mil reais, saberemos qual vídeo de R$ 20 gerou aquele contato.</li>
+                        <li><i class="fa-solid fa-bolt"></i> <strong>Atendimento Personalizado:</strong> Sua secretária já recebe a mensagem pré-preenchida com o tratamento que o paciente deseja.</li>
+                        <li><i class="fa-solid fa-chart-line"></i> <strong>Corte de Desperdício:</strong> Identificamos campanhas que trazem curiosos e escalamos apenas os anúncios que trazem pacientes fechadores.</li>
+                    </ul>
+                </div>
+
+                <div class="track-interactive">
+                    <p style="color: white; font-size: 12px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;">Simule o clique do paciente em um anúncio:</p>
+                    <div class="ad-triggers">
+                        <button class="ad-btn" onclick="sendWppMsg('implante')"><i class="fa-brands fa-instagram"></i> Vídeo Implantes</button>
+                        <button class="ad-btn" onclick="sendWppMsg('invisalign')"><i class="fa-brands fa-facebook"></i> Carrossel Invisalign</button>
+                        <button class="ad-btn" onclick="sendWppMsg('lentes')"><i class="fa-brands fa-google"></i> Google Lentes</button>
+                    </div>
+
+                    <div class="wpp-mockup">
+                        <div class="wpp-header">
+                            <div class="wpp-avatar"><i class="fa-solid fa-user"></i></div>
+                            <div class="wpp-header-info">
+                                <span class="wpp-name">+55 (11) 99999-XXXX</span>
+                                <span class="wpp-status" id="typing-status">visto por último hoje às 14:32</span>
+                            </div>
+                        </div>
+                        <div class="wpp-body" id="wpp-chatbox">
+                            <div style="text-align: center; color: #8696a0; font-family: sans-serif; font-size: 11px; margin-top: 50px; background: rgba(32, 44, 51, 0.8); padding: 5px 10px; border-radius: 10px; align-self: center;">
+                                Clique em um dos botões acima para simular a chegada de um lead.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="crm-section">
+            <div class="crm-header-tag"><i class="fa-solid fa-plus"></i> Serviço Adicional Exclusivo</div>
+            <h2>Máquina de Vendas <span>(CRM)</span></h2>
+            <p class="crm-sub">Sabe aquele paciente que perguntou o preço e a recepção esqueceu de retornar? Isso acabou. Implementamos um funil visual para sua equipe comercial não perder nenhum orçamento. Acompanhe a jornada completa.</p>
+
+            <div class="kanban-board">
+                <div class="kanban-col" id="col-contato">
+                    <div class="kanban-header">
+                        <span><i class="fa-regular fa-envelope"></i> Contatos</span>
+                        <span class="kanban-count" id="count-1">1</span>
+                    </div>
+                    <div class="k-card" id="lead-demo">
+                        <div class="k-card-title">Mariana S. <span class="k-tag">Lentes</span></div>
+                        <div class="k-card-desc">Origem: Meta Ads | Há 10 min</div>
+                    </div>
+                </div>
+
+                <div class="kanban-col" id="col-lead">
+                    <div class="kanban-header">
+                        <span><i class="fa-solid fa-user-check"></i> Lead Qualificado</span>
+                        <span class="kanban-count" id="count-2">0</span>
+                    </div>
+                    </div>
+
+                <div class="kanban-col" id="col-agendou">
+                    <div class="kanban-header" style="border-bottom-color: #25D366;">
+                        <span style="color: #25D366;"><i class="fa-solid fa-calendar-check"></i> Agendou</span>
+                        <span class="kanban-count" id="count-3" style="background: rgba(37,211,102,0.1); color: #25D366;">0</span>
+                    </div>
+                    </div>
+            </div>
+
+            <div class="crm-results">
+                <div>
+                    <p style="color: #9CA3AF; font-size: 13px; text-transform: uppercase; margin-bottom: 5px;">Faturamento Recuperado</p>
+                    <span id="crm-revenue">R$ 0,00</span>
+                </div>
+                <button id="btn-simular-crm" class="cta-btn btn-solid" style="width: auto; padding: 15px 40px; margin-top: 0; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); background: linear-gradient(90deg, #10B981, #059669);" onclick="animarCRM()">
+                    <i class="fa-solid fa-play"></i> Simular Fechamento
+                </button>
+            </div>
+            
+            <a href="#" class="cta-btn btn-outline" style="border-color: rgba(255,255,255,0.2); color: white; display: inline-flex; width: auto; padding: 12px 30px; align-items: center; justify-content: center; gap: 10px;">
+                Consultar Valor da Implementação de CRM
+            </a>
+        </section>
+
+        <section class="tools-section">
+            <div class="tools-header">
+                <h2>Projeção de <span>Resultados</span></h2>
+                <p style="color: #9CA3AF; margin-top: 10px;">Simule o impacto da DF Soluções na rotina e no caixa do seu consultório.</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3><i class="fa-regular fa-calendar-check"></i> Previsibilidade de Agenda</h3>
+                    <p class="tool-desc">Simule a entrada de pacientes High-Ticket através das nossas campanhas de tráfego pago e funil de conversão.</p>
+                    <div id="slots-container">
+                        <div class="agenda-slot" id="slot1"><span class="agenda-time">09:00</span><span class="agenda-status">Horário Vazio</span></div>
+                        <div class="agenda-slot" id="slot2"><span class="agenda-time">10:30</span><span class="agenda-status">Horário Vazio</span></div>
+                        <div class="agenda-slot" id="slot3"><span class="agenda-time">14:00</span><span class="agenda-status">Horário Vazio</span></div>
+                        <div class="agenda-slot" id="slot4"><span class="agenda-time">16:00</span><span class="agenda-status">Horário Vazio</span></div>
+                    </div>
+                    <button class="cta-btn btn-solid" style="margin-top: 20px; width: 100%;" onclick="lotarAgenda()">Injetar Tráfego Pago 🚀</button>
+                </div>
+                <div class="tool-card">
+                    <h3><i class="fa-solid fa-chart-line"></i> Calculadora de Retorno (ROI)</h3>
+                    <p class="tool-desc">Arraste a barra e veja quantos pacientes de alto valor (Ex: Lentes/Implantes) pagam nosso serviço.</p>
+                    <div class="roi-slider-container">
+                        <label>Pacientes fechados via DF Soluções no mês:</label>
+                        <span class="roi-val-highlight" id="qtd-pacientes">1</span>
+                        <input type="range" class="df-slider" id="slider-roi" min="1" max="10" value="1" oninput="calcularROI()">
+                    </div>
+                    <div class="roi-result-box">
+                        <span style="display: block; color: #9CA3AF; font-size: 13px; margin-bottom: 5px;">Faturamento Estimado (R$ 5.000/ticket médio)</span>
+                        <div class="roi-total" id="faturamento">R$ 5.000,00</div>
+                        <div class="roi-comparativo">
+                            Investimento Plano Premium: <strong style="color: white">R$ 2.500,00</strong><br>
+                            Seu Lucro Bruto Estimado: <strong id="lucro" style="color:var(--magenta); font-weight: bold; font-size: 16px;">R$ 2.500,00</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ia-section">
+            <h2>✨ Consultoria e Criativos</h2>
+            <div class="ia-grid">
+                <div class="ia-card">
+                    <h3><i class="fa-solid fa-brain"></i> Consultoria Express</h3>
+                    <textarea class="ia-input" id="ia-consult-text" rows="4" placeholder="Diga o seu desafio atual (Ex: Quero escala com tráfego)..."></textarea>
+                    <button class="cta-btn btn-solid" style="width:100%" onclick="handleConsultoria()">Analisar minha Clínica ✨</button>
+                </div>
+                <div class="ia-card">
+                    <h3><i class="fa-solid fa-clapperboard"></i> Gerador de Roteiros</h3>
+                    <select class="ia-select" id="ia-reels-topic">
+                        <option value="Implantes Dentários">Implantes Dentários</option>
+                        <option value="Harmonização Orofacial">Harmonização Orofacial</option>
+                        <option value="Lentes de Contato">Lentes de Contato</option>
+                        <option value="Invisalign / Alinhadores">Invisalign / Alinhadores</option>
+                        <option value="Protocolo Fixo">Protocolo Fixo</option>
+                    </select>
+                    <button class="cta-btn btn-outline" style="width:100%" onclick="handleRoteiros()">Gerar Ideia de Reels ✨</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="lp-section">
+            <h2>PÁGINA DE VENDAS <span>(LANDING PAGE)</span></h2>
+            <p style="color: #9CA3AF; margin-bottom: 50px; max-width: 800px; margin: 0 auto; line-height: 1.6;">Este serviço não está incluso nos pacotes mensais, mas pode ser contratado separadamente para transformar cliques em pacientes particulares com uma vitrine de alto padrão.</p>
+            <div class="lp-grid">
+                <div class="lp-card">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <h4>Pagamento Único</h4>
+                    <p>Você paga apenas uma vez pelo desenvolvimento da página. Sem taxas de manutenção ocultas ou mensalidades surpresas para manter o site no ar.</p>
+                </div>
+                <div class="lp-card">
+                    <i class="fa-solid fa-code"></i>
+                    <h4>100% Sua Propriedade</h4>
+                    <p>O código, a estrutura e o design da Landing Page são <strong>totalmente seus</strong>. Se a nossa parceria um dia terminar, você leva a sua página com você.</p>
+                </div>
+                <div class="lp-card">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <h4>Orçamento Sob Medida</h4>
+                    <p>O orçamento é combinado à parte, pois depende da complexidade da sua LP. Desenvolvemos desde o design até a estrutura completa de persuasão.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-container">
+            <div class="info-box">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Pontos Importantes a Destacar</h3>
+                <div class="info-item">
+                    <div class="info-dot"></div>
+                    <p><strong>Conteúdo de Vídeo:</strong> Nenhum dos planos inclui a captação de imagens ou vídeos. O cliente deve nos enviar os vídeos brutos para que nossa equipe realize a edição e os utilize nas campanhas e publicações (Instagram, Facebook, TikTok, YouTube).</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-dot"></div>
+                    <p><strong>Investimento nas Plataformas:</strong> Os valores apresentados referem-se exclusivamente à nossa mão de obra (gestão e criação). O valor a ser investido diretamente nas plataformas de anúncios (Facebook, Google, etc.) é definido em conjunto com o cliente e pago à parte.</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-dot"></div>
+                    <p><strong>Pagamento do Investimento:</strong> O pagamento do valor destinado às campanhas de tráfego pago deve ser realizado rigorosamente dentro do cronograma combinado para que as campanhas não sejam interrompidas, evitando a perda de performance.</p>
+                </div>
+                <div class="exclusive-alert">
+                    <i class="fa-solid fa-infinity" style="color:var(--magenta)"></i> <strong style="color:var(--magenta); margin-left: 5px;">APENAS O PLANO PREMIUM</strong> oferece solicitações ilimitadas de artes e outras necessidades. Os planos Lite e Prata possuem um limite de demandas mensais a ser combinado.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3><i class="fa-solid fa-wallet"></i> Pagamento da Mensalidade & Benefícios</h3>
+                <p style="font-size:14px; margin-bottom:30px;">Na DF Soluções, o parceiro de serviço <strong>NÃO paga multa</strong> ou qualquer outro custo de cancelamento.</p>
+                <div class="payment-grid">
+                    <div class="payment-item"><i class="fa-regular fa-calendar-xmark"></i><p>Aviso prévio com <strong>30 dias de antecedência</strong> para cancelamento.</p></div>
+                    <div class="payment-item"><i class="fa-solid fa-calculator"></i><p>Será cobrado somente os <strong>valores proporcionais</strong> de utilização do mês de encerramento.</p></div>
+                    <div class="payment-item"><i class="fa-regular fa-calendar-check"></i><p><strong>Vencimento da mensalidade</strong> programado para todo início de mês.</p></div>
+                    <div class="payment-item"><i class="fa-solid fa-file-invoice-dollar"></i><p>Forma de cobrança e notas fiscais <strong>combinadas previamente com flexibilidade</strong>.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <footer style="text-align: center; padding-bottom: 60px; opacity: 0.5; font-size: 12px;">
+            DF SOLUÇÕES - AGÊNCIA DE MARKETING DIGITAL © 2026
+        </footer>
+    </div>
+
+    <div class="modal" id="ai-modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal()">&times;</div>
+            <h2 class="modal-header" id="modal-title">Consultoria</h2>
+            <div id="ai-response"></div>
+            <button class="cta-btn btn-solid" style="margin-top: 35px; width: auto; align-self: center; padding: 15px 50px;" onclick="closeModal()">Fechar Resposta</button>
+        </div>
+    </div>
+
+    <script>
+        // BANCO DE DADOS DE 40 ROTEIROS (8 POR TEMA) - 45 SEGUNDOS CADA
+        const REELS_DATABASE = {
+            "Implantes Dentários": [
+                "**Roteiro 1: O Prazer de Comer (45s)**\n\n**0-5s:** Você evita comer alimentos como churrasco por medo da prótese soltar?\n**5-25s:** A perda dentária não ataca só o sorriso, ela ataca sua autoestima e nutrição. Com implantes fixos, devolvemos sua força mastigatória real.\n**25-40s:** Muitos temem a dor, mas hoje usamos tecnologia de carga imediata. É um procedimento rápido e seguro.\n**40-45s:** Clique no link e agende hoje.",
+                "**Roteiro 2: Terceira Dentição (45s)**\n\n**0-5s:** Você sabia que o implante é considerado a sua terceira dentição?\n**5-25s:** Diferente de próteses móveis, o implante é fixo e vitalício se bem cuidado. Ele preserva o osso do seu rosto e impede o envelhecimento precoce.\n**25-40s:** Mastigue o que quiser, sorria para fotos sem medo. Recupere a dignidade de quem tem dentes fixos.\n**40-45s:** Saiba mais clicando no link abaixo.",
+                "**Roteiro 3: Implante e Medo (45s)**\n\n**0-5s:** O medo de agulha e motor te impede de ter dentes fixos?\n**5-25s:** Entendemos você. Hoje, a cirurgia de implantes é guiada e planejada digitalmente, o que torna o processo 100% confortável.\n**25-40s:** A recuperação é mais tranquila que uma extração simples. Não deixe o receio travar sua qualidade de vida.\n**40-45s:** Fale com nossa equipe agora.",
+                "**Roteiro 4: Estética e Saúde (45s)**\n\n**0-5s:** Sabia que dentes perdidos fazem seu rosto parecer mais envelhecido?\n**5-25s:** Sem a raiz do dente, o osso do rosto atrofia. O implante substitui essa função, mantendo seu rosto jovem.\n**25-40s:** Melhore sua aparência e sua digestão em um só tratamento. O sorriso é seu cartão de visitas.\n**40-45s:** Agende sua avaliação na bio.",
+                "**Roteiro 5: O Fim das Dentaduras (45s)**\n\n**0-5s:** Cansado de usar adesivos para segurar sua dentadura?\n**5-25s:** Os implantes eliminam a necessidade de colas. Dentes fixos que não escorregam na hora de falar ou comer.\n**25-40s:** Tenha a segurança de um sorriso que não solta nunca. Sinta o gosto real dos alimentos de novo.\n**40-45s:** Clique e veja casos reais.",
+                "**Roteiro 6: Mastigação Perfeita (45s)**\n\n**0-5s:** Você sente dores de estômago com frequência?\n**5-25s:** A digestão começa na boca. Se você não tritura bem a comida por falta de dentes, seu estômago e corpo sofrem.\n**25-40s:** O implante devolve 100% da eficiência mastigatória. Mais saúde e energia para o seu dia a dia.\n**40-45s:** Envie 'SORRISO' e saiba mais.",
+                "**Roteiro 7: Tecnologia alemã (45s)**\n\n**0-5s:** Você procura qualidade acima de tudo no seu tratamento dentário?\n**5-25s:** Usamos marcas de implantes reconhecidas mundialmente pela sua integração óssea recorde e durabilidade extrema.\n**25-40s:** Precisão milimétrica para um sorriso natural e forte. É o melhor investimento que você pode fazer por si.\n**40-45s:** Reserve sua consulta exclusiva.",
+                "**Roteiro 8: Mudança de vida (45s)**\n\n**0-5s:** Quanto vale voltar a sorrir sem colocar a mão na frente da boca?\n**5-25s:** Recebemos pacientes que não sorriam há anos. Ver a transformação da alegria deles é nossa maior missão.\n**25-40s:** Recupere sua vida social. Volte a gargalhar com vontade e segurança. Você merece esse conforto.\n**40-45s:** Clique abaixo agora."
+            ],
+            "Harmonização Orofacial": [
+                "**Roteiro 1: Naturalidade (45s)**\n\n**0-5s:** Harmonização não é mudar seu rosto, é realçar sua essência.\n**5-25s:** O segredo é o equilíbrio. Usamos preenchedores para devolver sustentação onde o tempo causou perda, sem perder sua expressão.\n**25-40s:** Medo de ficar artificial? Nosso foco é o 'menos é mais'. Você renovada, com sua essência preservada.\n**40-45s:** Agende sua análise facial.",
+                "**Roteiro 2: Efeito Descansado (45s)**\n\n**0-5s:** Cansada de ouvir que você parece estar cansada mesmo após dormir?\n**5-25s:** Olheiras profundas e perda de volume nas maçãs pesam o semblante. A harmonização traz luz e frescor imediato.\n**25-40s:** É rápido, seguro e feito em consultório. Recupere o vigor com bioestimuladores de colágeno premium.\n**40-45s:** Clique e saiba mais.",
+                "**Roteiro 3: Lábios Elegantes (45s)**\n\n**0-5s:** Lábios hidratados e definidos são o toque final de sofisticação.\n**5-25s:** O preenchimento labial não é só volume. É contorno, hidratação profunda e correção de assimetrias.\n**25-40s:** 'Vai doer?' Usamos anestesia local e técnicas suaves para um resultado macio e natural. Você vai amar.\n**40-45s:** Reserve seu horário.",
+                "**Roteiro 4: Mandíbula Marcada (45s)**\n\n**0-5s:** Você sabia que um contorno de mandíbula definido transmite mais autoridade?\n**5-25s:** Trabalhamos a sustentação para eliminar a papada e criar um perfil mais jovem e imponente.\n**25-40s:** Procedimento minimamente invasivo com retorno imediato. Defina seu perfil com segurança técnica.\n**40-45s:** Link na bio.",
+                "**Roteiro 5: Prevenção com Botox (45s)**\n\n**0-5s:** Não espere a ruga marcar sua pele para agir. Prevenir é melhor.\n**5-25s:** A toxina botulínica relaxa a musculatura e impede que as linhas virem vincos permanentes.\n**25-40s:** 'Vou ficar sem expressão?' Não. A técnica moderna mantém seus movimentos, apenas suaviza o semblante.\n**40-45s:** Agende seu Botox Day.",
+                "**Roteiro 6: Bioestimuladores (45s)**\n\n**0-5s:** Sente a pele do rosto 'derretendo' ou ficando flácida?\n**5-25s:** Cremes não resolvem flacidez profunda. Os bioestimuladores forçam o corpo a produzir colágeno novo por 18 meses.\n**25-40s:** O resultado é progressivo e traz brilho e firmeza de dentro para fora. Envelheça com extrema elegância.\n**40-45s:** Clique no botão abaixo.",
+                "**Roteiro 7: Olheiras Intensas (45s)**\n\n**0-5s:** Corretivo nenhum dá conta das suas olheiras?\n**5-25s:** Muitas vezes o problema é o 'degrau' de sombra. O preenchimento estratégico ilumina o olhar imediatamente.\n**25-40s:** Procedimento rápido com microcânulas para sua total segurança. Recupere o brilho do seu olhar.\n**40-45s:** Fale conosco agora.",
+                "**Roteiro 8: Plano Facial 360 (45s)**\n\n**0-5s:** Você sabe o que seu rosto realmente precisa para brilhar?\n**5-25s:** No nosso Plano 360, analisamos pele, músculos e ossos. Criamos um cronograma anual de cuidados.\n**25-40s:** Luxo e tecnologia unidos para sua estética facial de alto padrão. Você merece esse cuidado exclusivo.\n**40-45s:** Link na bio."
+            ],
+            "Lentes de Contato": [
+                "**Roteiro 1: Sorriso de Cinema (45s)**\n\n**0-5s:** Seu sorriso abre ou fecha portas na sua carreira?\n**5-25s:** Lentes de porcelana corrigem cor e formato em apenas 2 sessões. Resistência total e brilho natural.\n**25-40s:** Tecnologia Hollywoodiana ao seu alcance com o visagismo que respeita sua personalidade.\n**40-45s:** Envie 'SORRISO' e veja casos reais.",
+                "**Roteiro 2: Cor Definitiva (45s)**\n\n**0-5s:** Cansado de clareamento anual e os dentes continuarem amarelos?\n**5-25s:** O dente tem um limite. As lentes permitem escolher o branco perfeito que nunca mancha com café ou vinho.\n**25-40s:** Investimento único que dura décadas. Imagine acordar com o sorriso impecável todos os dias.\n**40-45s:** Clique e saiba mais.",
+                "**Roteiro 3: Fechando Diastemas (45s)**\n\n**0-5s:** Aquele espaço entre os dentes te incomoda ao falar ou sorrir?\n**5-25s:** Fechamos espaços de forma harmônica e equilibrada. O sorriso preenche seu rosto com elegância.\n**25-40s:** Rápido e sem dor. Usamos simuladores digitais para você aprovar o resultado antes de começar.\n**40-45s:** Link na bio.",
+                "**Roteiro 4: Dentes Curtos (45s)**\n\n**0-5s:** Sente que seus dentes 'somem' quando você sorri?\n**5-25s:** Dentes desgastados envelhecem a face. Devolvemos o tamanho ideal, trazendo jovialidade e força.\n**25-40s:** Porcelana de alta resistência que reflete a luz como esmalte natural. Naturalidade absoluta.\n**40-45s:** Agende sua consulta.",
+                "**Roteiro 5: Teste do Sorriso (45s)**\n\n**0-5s:** Medo de colocar lentes e não gostar do resultado final?\n**5-25s:** Aqui fazemos o 'Mockup'. Você testa uma simulação física nos seus dentes antes de finalizar tudo.\n**25-40s:** Segurança total e previsibilidade para o seu novo sorriso. Você aprova cada detalhe primeiro.\n**40-45s:** Clique abaixo.",
+                "**Roteiro 6: Resina vs Porcelana (45s)**\n\n**0-5s:** Qual a diferença entre facetas de resina e lentes de porcelana?\n**5-25s:** A resina é rápida, mas a porcelana é soberana em brilho e durabilidade. Ela não perde a cor.\n**25-40s:** Para quem busca o padrão máximo de estética e longevidade, a porcelana é o melhor caminho.\n**40-45s:** Saiba qual a ideal para você.",
+                "**Roteiro 7: Upgrade de Imagem (45s)**\n\n**0-5s:** Você sabia que um sorriso bonito aumenta sua percepção de sucesso?\n**5-25s:** É ciência. Dentes brancos transmitem mais confiança e higiene. Mude sua vida através do sorriso.\n**25-40s:** Não é futilidade, é investimento em você mesmo. Sua imagem é sua marca mais valiosa.\n**40-45s:** Link no perfil.",
+                "**Roteiro 8: Sorriso Renovado (45s)**\n\n**0-5s:** Cansado de ter dentes desalinhados e escurecidos nas fotos?\n**5-25s:** As lentes de contato são a transformação mais impactante da odontologia moderna. Autoestima imediata.\n**25-40s:** Profissionalismo e arte unidos. Cada lente é esculpida para o seu rosto e personalidade.\n**40-45s:** Agende sua simulação hoje."
+            ],
+            "Invisalign / Alinhadores": [
+                "**Roteiro 1: Ortodontia Invisível (45s)**\n\n**0-5s:** Quer dentes alinhados sem o desconforto do metal e fios cortando?\n**5-25s:** O Invisalign é transparente, removível e planejado em 3D. Ninguém percebe que você usa.\n**25-40s:** Muito mais rápido que o aparelho tradicional. Tecnologia americana para o seu conforto.\n**40-45s:** Faça seu escaneamento 3D.",
+                "**Roteiro 2: Liberdade para Comer (45s)**\n\n**0-5s:** Cansado de não poder comer pipoca ou maçã por causa do aparelho?\n**5-25s:** Com o Invisalign, você retira o alinhador nas refeições. Higiene impecável e liberdade total.\n**25-40s:** Sem fios soltos ou braquetes caindo. Ideal para quem tem rotina corrida e busca praticidade.\n**40-45s:** Link na bio.",
+                "**Roteiro 3: Previsibilidade (45s)**\n\n**0-5s:** Quer saber exatamente o dia que seu tratamento vai terminar?\n**5-25s:** Através do software Itero, mostramos o resultado final do sorriso antes mesmo de começar.\n**25-40s:** Menos visitas ao consultório e mais tempo para você. O aparelho que se adapta ao seu estilo.\n**40-45s:** Clique e agende.",
+                "**Roteiro 4: Conforto Total (45s)**\n\n**0-5s:** Sofre com as aftas causadas pelo aparelho convencional?\n**5-25s:** O Invisalign é feito de um polímero liso que não machuca. Como se não estivesse usando nada.\n**25-40s:** Perfeito para quem fala em público ou pratica esportes. Conforto e estética juntos.\n**40-45s:** Reserve sua consulta.",
+                "**Roteiro 5: Higiene Facilitada (45s)**\n\n**0-5s:** Odiava passar fio dental com aparelho fixo? Temos a solução.\n**5-25s:** Remova o alinhador e escove seus dentes normalmente. Saúde gengival preservada do início ao fim.\n**25-40s:** Previne cáries e tártaro comuns em aparelhos fixos. É o jeito mais saudável de alinhar.\n**40-45s:** Chame no direct.",
+                "**Roteiro 6: Estética Discreta (45s)**\n\n**0-5s:** Tem verba para investir mas não quer parecer adolescente de aparelho?\n**5-25s:** O Invisalign é a escolha dos executivos. Discrição total em reuniões e jantares de negócios.\n**25-40s:** Mantenha sua autoridade profissional enquanto conquista o sorriso perfeito. Modernidade.\n**40-45s:** Saiba mais aqui.",
+                "**Roteiro 7: Tecnologia 3D (45s)**\n\n**0-5s:** Esqueça aquela massinha ruim para tirar molde dos dentes!\n**5-25s:** Aqui usamos escaneamento intraoral de precisão. Milhares de fotos geram seu modelo digital.\n**25-40s:** Sem náuseas e com encaixe 100% fiel. Engenharia de elite aplicada ao seu sorriso.\n**40-45s:** Venha fazer seu scan.",
+                "**Roteiro 8: Sorriso Completo (45s)**\n\n**0-5s:** Dentes tortos te impedem de sorrir com vontade?\n**5-25s:** Alinhar não é só estética, é saúde da mordida e longevidade. Faça isso por você e seu futuro.\n**25-40s:** Condições facilitadas para começar a transformação. O momento de cuidar de você é hoje.\n**40-45s:** Link no perfil."
+            ],
+            "Protocolo Fixo": [
+                "**Roteiro 1: Adeus Dentadura (45s)**\n\n**0-5s:** Chega de medo da prótese cair ao falar, sorrir ou comer em público!\n**5-25s:** O protocolo fixo devolve sua dignidade e prazer. São dentes parafusados que não se movem.\n**25-40s:** Céu da boca livre para você sentir o sabor real da comida e a temperatura das bebidas.\n**40-45s:** Recupere sua vida hoje.",
+                "**Roteiro 2: Rejuvenescimento (45s)**\n\n**0-5s:** Você sabia que a prótese móvel faz o rosto 'murchar' mais rápido?\n**5-25s:** O protocolo devolve o suporte dos lábios, rejuvenescendo seu semblante instantaneamente.\n**25-40s:** Volte a ter a fisionomia de anos atrás com dentes fixos. Segurança para conversar de perto.\n**40-45s:** Agende sua avaliação.",
+                "**Roteiro 3: Comer sem Medo (45s)**\n\n**0-5s:** Há quanto tempo você não come um churrasco com vontade?\n**5-25s:** A dentadura limita sua nutrição. Com o protocolo fixo, você mastiga qualquer alimento.\n**25-40s:** Chega de escolher o prato pela facilidade. Escolha o que você gosta! Liberdade total.\n**40-45s:** Clique e saiba como.",
+                "**Roteiro 4: Segurança Social (45s)**\n\n**0-5s:** Evita festas e jantares por vergonha da sua prótese se mexer?\n**5-25s:** O isolamento social acaba aqui. O protocolo te dá a segurança de uma dentição natural.\n**25-40s:** É a recuperação da sua autoestima profunda. Você merece se sentir bem sempre.\n**40-45s:** Fale conosco agora.",
+                "**Roteiro 5: Higiene Simples (45s)**\n\n**0-5s:** Odiava tirar a prótese e colocar no copinho toda noite?\n**5-25s:** O protocolo é fixo. Você escova como se fossem dentes naturais. Muito mais higiene.\n**25-40s:** Sem mau hálito causado por resíduos sob a dentadura. Boca limpa 24 horas por dia.\n**40-45s:** Saiba mais na bio.",
+                "**Roteiro 6: Tecnologia All-on-4 (45s)**\n\n**0-5s:** Sabia que é possível fixar todos os dentes com apenas 4 implantes?\n**5-25s:** Técnica moderna que reduz o número de implantes e o tempo, com estabilidade máxima.\n**25-40s:** Elimina a necessidade de enxertos complexos. Odontologia de elite ao seu alcance.\n**40-45s:** Marque sua consulta.",
+                "**Roteiro 7: Fim das Dores (45s)**\n\n**0-5s:** Cansado das feridas causadas pela dentadura mal ajustada?\n**5-25s:** O protocolo não aperta sua gengiva, ele fica fixo nos implantes. Conforto total definitivo.\n**25-40s:** Durabilidade extrema com materiais cerâmicos premium. O investimento final no sorriso.\n**40-45s:** Clique no link abaixo.",
+                "**Roteiro 8: Vida Nova (45s)**\n\n**0-5s:** Qual o valor da sua felicidade ao se olhar no espelho hoje?\n**5-25s:** O protocolo fixo muda não só sua boca, mas sua vontade de viver. Transformação real.\n**25-40s:** Não deixe para depois o que pode mudar sua vida agora. Temos planos para você.\n**40-45s:** Venha conversar hoje."
+            ]
+        };
+
+        // BANCO DE 160 ANÁLISES SÊNIOR (40 POR PLANO)
+        const CONSULT_DATABASE = {
+            Premium: [
+                "**Parecer Sênior: Plano Premium**\nFaturamento de Elite. Para dominar o Google e Meta simultaneamente com artes ilimitadas.",
+                "**Parecer Sênior: Plano Premium**\nDominância absoluta. Ideal para quem quer escala agressiva e análise de dados em tempo real.",
+                "**Parecer Sênior: Plano Premium**\nLiderança de Mercado. Onipresença digital para clínicas que buscam o topo do faturamento regional.",
+                "**Parecer Sênior: Plano Premium**\nEcossistema 360. Google Search avançado aliado ao TikTok Ads para atrair o paciente Black.",
+                "**Parecer Sênior: Plano Premium**\nEscala sem limites. Suporte corporativo sênior para gerir seu tráfego em todas as frentes.",
+                "**Parecer Sênior: Plano Premium**\nFaturamento de 7 dígitos. Estratégia focada em Reabilitação Oral e Estética de luxo.",
+                "**Parecer Sênior: Plano Premium**\nDashboard de Inteligência. Decisões baseadas em lucro líquido e custo por agendamento.",
+                "**Parecer Sênior: Plano Premium**\nBlindagem de Marca. Sua clínica como a maior referência odontológica do seu estado.",
+                "**Parecer Sênior: Plano Premium**\nPerformance Multiplataforma. Captura cirúrgica de leads qualificados em todos os canais.",
+                "**Parecer Sênior: Plano Premium**\nSolicitações Ilimitadas. Liberdade total para sua equipe de marketing criar sem travas.",
+                "**Parecer Sênior: Plano Premium**\nTráfego de Alto Padrão. Filtramos o público A e B para fechar orçamentos de alto ticket.",
+                "**Parecer Sênior: Plano Premium**\nGestão de Franquia. Aplicamos o método das gigantes do mercado no seu consultório.",
+                "**Parecer Sênior: Plano Premium**\nDominância Local. Não deixe sobra para o concorrente. Onipresença com o selo DF Soluções.",
+                "**Parecer Sênior: Plano Premium**\nEstratégia VIP. Acesso direto à nossa diretoria para alinhar metas de expansão anual.",
+                "**Parecer Sênior: Plano Premium**\nMarketing de Luxo. Posicionamento de grife para atrair o paciente que não questiona preço.",
+                "**Parecer Sênior: Plano Premium**\nFunil de Conversão Black. Jornada do paciente personalizada do Google ao agendamento.",
+                "**Parecer Sênior: Plano Premium**\nROI Exponencial. Investimento agressivo para retorno veloz em tratamentos complexos.",
+                "**Parecer Sênior: Plano Premium**\nInteligência Multi-Funil. Criamos várias entradas de leads para sua recepção nunca parar.",
+                "**Parecer Sênior: Plano Premium**\nAutoridade Reconhecida. Sua clínica vista como a mais tecnológica e segura da cidade.",
+                "**Parecer Sênior: Plano Premium**\nFaturamento sem Teto. Escalamos conforme sua capacidade de atendimento.",
+                "**Parecer Sênior: Plano Premium**\nGestão Multi-Canal Avançada. Meta, Google e TikTok integrados com um único objetivo: Lucro.",
+                "**Parecer Sênior: Plano Premium**\nEstratégia de Elite Digital. O suporte que uma clínica de alto ticket exige diariamente.",
+                "**Parecer Sênior: Plano Premium**\nMarketing Corporativo. Relatórios profundos para guiar o crescimento da sua rede.",
+                "**Parecer Sênior: Plano Premium**\nDomínio de Palavras-Chave. Apareça em primeiro no Google para todos os tratamentos caros.",
+                "**Parecer Sênior: Plano Premium**\nCriativos Ilimitados. Vídeos e artes saindo do forno todos os dias para sua clínica brilhar.",
+                "**Parecer Sênior: Plano Premium**\nExpansão de Faturamento Garantida. Método validado em centenas de clínicas de sucesso.",
+                "**Parecer Sênior: Plano Premium**\nO Topo da Pirâmide. Foco total em Implantes, Protocolos e Invisalign com grande escala.",
+                "**Parecer Sênior: Plano Premium**\nConsultoria de Gestão. Alinhamos seu marketing ao seu processo comercial interno.",
+                "**Parecer Sênior: Plano Premium**\nEcossistema Digital Blindado. Protegemos sua marca com autoridade e presença massiva.",
+                "**Parecer Sênior: Plano Premium**\nInjeção de Pacientes Novos. Fluxo constante e ininterrupto de leads quentes no Whats.",
+                "**Parecer Sênior: Plano Premium**\nMarketing 360 Full. Da papelaria offline à gestão de tráfego mais pesada do mercado.",
+                "**Parecer Sênior: Plano Premium**\nVisibilidade Total. Garanta que 100% do seu público alvo conheça o seu nome este mês.",
+                "**Parecer Sênior: Plano Premium**\nCrescimento Veloz. O acelerador que sua clínica precisa para dobrar o faturamento.",
+                "**Parecer Sênior: Plano Premium**\nPerformance sem Desculpas. Foco total em converter cliques em dinheiro no seu caixa.",
+                "**Parecer Sênior: Plano Premium**\nO Plano da Vitória. Para quem não aceita nada menos que ser o número 1 da região.",
+                "**Parecer Sênior: Plano Premium**\nEstratégia de Escala Infinita. Escalamos seus anúncios conforme você contrata novos dentistas.",
+                "**Parecer Sênior: Plano Premium**\nSuporte de Marketing Executivo. Reuniões de alto nível para traçar planos de dominância.",
+                "**Parecer Sênior: Plano Premium**\nAutoridade em HOF. Transformamos você na maior referência estética da sua cidade.",
+                "**Parecer Sênior: Plano Premium**\nO Caminho dos Gigantes. Jogue o jogo dos grandes com a inteligência da DF Soluções.",
+                "**Parecer Sênior: Plano Premium**\nSolução Definitiva. O último contrato de marketing que você precisará assinar na vida."
+            ],
+            Prata: [
+                "**Parecer Sênior: Plano Prata**\nEquilíbrio Estratégico. Unimos a força do orgânico com a velocidade do tráfego pago.",
+                "**Parecer Sênior: Plano Prata**\nAceleração de Resultados. Reuniões semanais para alinhar seu comercial e otimizar Ads.",
+                "**Parecer Sênior: Plano Prata**\nBranding de Performance. Artes profissionais que elevam seu padrão visual no feed.",
+                "**Parecer Sênior: Plano Prata**\nGestão Completa Meta Ads. Cuidamos do Face e Insta para gerar fluxo de orçamentos.",
+                "**Parecer Sênior: Plano Prata**\nMentoria de Vendas. Ajudamos sua secretária a converter o lead que chega do anúncio.",
+                "**Parecer Sênior: Plano Prata**\nPosicionamento Premium. O Prata constrói a autoridade necessária para cobrar o particular.",
+                "**Parecer Sênior: Plano Prata**\nExpansão de Faturamento. Motor ideal para clínicas que querem sair dos convênios.",
+                "**Parecer Sênior: Plano Prata**\nSuporte Full Time. Atendimento próximo para garantir que sua estratégia nunca pare.",
+                "**Parecer Sênior: Plano Prata**\nDesign e Tráfego. O combo perfeito para quem quer perfil bonito e agenda cheia.",
+                "**Parecer Sênior: Plano Prata**\nOtimização Contínua. Analisamos métricas semanais para baixar seu custo por lead.",
+                "**Parecer Sênior: Plano Prata**\nCrescimento Sustentável. Prepara o terreno para a dominância sem comprometer o caixa.",
+                "**Parecer Sênior: Plano Prata**\nFoco em Conversão Real. Criativos de vídeo e imagem validados para o público odonto.",
+                "**Parecer Sênior: Plano Prata**\nAlinhamento Estratégico. Reuniões frequentes para definir as metas do próximo mês.",
+                "**Parecer Sênior: Plano Prata**\nAparência de Franquia. Artes que dão cara de grande rede ao seu consultório local.",
+                "**Parecer Sênior: Plano Prata**\nInteligência Meta Ads. Públicos personalizados e remarketing para quem viu seu perfil.",
+                "**Parecer Sênior: Plano Prata**\nMáquina de Agendamentos. Focamos no seu tratamento de maior retorno mensal.",
+                "**Parecer Sênior: Plano Prata**\nExpertise DF Soluções. Aplicação do método validado em centenas de clínicas.",
+                "**Parecer Sênior: Plano Prata**\nCusto-Benefício Campeão. Estrutura de agência sênior com valor acessível.",
+                "**Parecer Sênior: Plano Prata**\nO Plano do Equilíbrio. Nem tão básico, nem tão agressivo. No ponto certo.",
+                "**Parecer Sênior: Plano Prata**\nMarketing de Atração. Construímos desejo no seguidor para ele agendar a consulta.",
+                "**Parecer Sênior: Plano Prata**\nAutoridade em Movimento. Reels editados que fazem sua técnica brilhar nas redes.",
+                "**Parecer Sênior: Plano Prata**\nSucesso Garantido. Reduzimos o risco e maximizamos o retorno sobre o investimento.",
+                "**Parecer Sênior: Plano Prata**\nFoco no Particular. Direcionamos suas campanhas para o público qualificado regional.",
+                "**Parecer Sênior: Plano Prata**\nRelacionamento Digital. Conteúdo que educa o paciente e facilita o fechamento.",
+                "**Parecer Sênior: Plano Prata**\nAgenda Blindada. Fluxo ininterrupto de interessados chegando no seu WhatsApp.",
+                "**Parecer Sênior: Plano Prata**\nProfissionalismo Total. Delegue o marketing e foque 100% no seu atendimento clínico.",
+                "**Parecer Sênior: Plano Prata**\nCrescimento Escalonável. Permite crescer com base sólida antes de subir ao Premium.",
+                "**Parecer Sênior: Plano Prata**\nGestão Executiva. Relatórios periódicos para você saber o ROI de cada campanha.",
+                "**Parecer Sênior: Plano Prata**\nIdentidade Digital de Sucesso. Harmonizamos seu visual com o seu nível técnico.",
+                "**Parecer Sênior: Plano Prata**\nMétodo Validado. Estratégias que geraram milhões em orçamentos fechados.",
+                "**Parecer Sênior: Plano Prata**\nSuporte Comercial de Elite. Treinamos seu time para não perder nenhum lead.",
+                "**Parecer Sênior: Plano Prata**\nVitrine Lucrativa. Transformamos seu Insta em um ativo que gera lucro diário.",
+                "**Parecer Sênior: Plano Prata**\nConquista de Mercado. Expanda sua visibilidade e seja o dentista mais comentado.",
+                "**Parecer Sênior: Plano Prata**\nEstratégia Customizada. Analisamos sua concorrência e criamos sua oferta única.",
+                "**Parecer Sênior: Plano Prata**\nFaturamento Acelerado. Injetamos velocidade no comercial via tráfego segmentado.",
+                "**Parecer Sênior: Plano Prata**\nDomínio do Feed e Stories. Presença constante para não perder contato com o público.",
+                "**Parecer Sênior: Plano Prata**\nArtes que Convertem. Design focado em persuasão e autoridade odontológica.",
+                "**Parecer Sênior: Plano Prata**\nParceria de Resultados. Estamos no mesmo barco. Seu sucesso é nossa missão.",
+                "**Parecer Sênior: Plano Prata**\nO Próximo Passo. Eleve o nível da sua clínica com a gestão da DF Soluções.",
+                "**Parecer Sênior: Plano Prata**\nAceleração Híbrida. A dose certa de conteúdo e anúncios para crescer hoje."
+            ],
+            LiteAds: [
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nFoco em Vendas Imediatas. Se a prioridade é fluxo de caixa, os anúncios são o caminho.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nAgenda Cheia. Vamos captar pacientes via WhatsApp com anúncios agressivos.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nResposta Rápida. O Lite Ads coloca pacientes na sua cadeira ainda esta semana.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nMáxima Conversão. Usamos o gerenciador para encontrar quem quer agendar hoje.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nEstratégia de Guerrilha. Menor caminho entre o anúncio e o dinheiro no caixa.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nCaptação de Particular. Filtramos o público para atrair quem paga o ticket alto.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nFluxo Ininterrupto. Anúncios rodando 24h para sua secretária nunca parar.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nAcelerador de Agenda. Indicado para clínicas que precisam de tração rápida.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nVender Primeiro. Foco na sobrevivência e no lucro imediato através de leads.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nDireto ao Ponto. Criativos focados em dor e desejo para atrair agendamentos.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nInjeção de Caixa. A melhor solução para cobrir buracos de agenda velozmente.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nGestão Sênior de Tráfego. Especialistas cuidando das suas campanhas Meta Ads.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nFaturamento Ativo. Saia das indicações e vá buscar o paciente no digital.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nAgilidade no Suporte. Cuidamos do tráfego para suporte rápido e ajustes.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nO Plano do Faturamento. Ideal para dentistas que iniciam agora nos anúncios.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nTestes de Criativos. Descobrimos qual vídeo seu atrai mais e escalamos.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nFoco no Lucro Real. Anunciar é o investimento com retorno mais previsível.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nEscalabilidade. Comece com pouco e aumente conforme o faturamento subir.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nAtração Inevitável. Posicionamos sua oferta na frente de quem busca dentista.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nStart de Vendas. Sinta o poder da performance antes de subir os planos.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nCaptura Cirúrgica. Selecionamos os melhores bairros para leads de qualidade.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nWhatsApp Lucrativo. Prepare sua recepção para o volume de interessados.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nROI de Primeiro Mês. Nossa meta é que o plano se pague nos primeiros dias.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nAlvo no Particular. Excluímos o público de preço e focamos em valor.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nTráfego Veloz. Ideal para campanhas sazonais ou novos serviços na clínica.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nFim da Agenda Vazia. Tenha segurança de um fluxo previsível de orçamentos.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nMarketing Direto. Sem enrolação. Focado em cliques que viram agendamentos.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nExpertise em Conversão. Criamos o que o paciente não consegue ignorar.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nImpulso Comercial. O suporte que faltava para sua clínica decolar agora.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nAgendamento Ágil. Diminuímos o tempo de decisão do paciente via Ads.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nPerformance Odonto. O método DF Soluções aplicado à gestão de anúncios.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nFoco em Implantes. Atraia orçamentos de alto valor com anúncios nichados.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nFoco em Invisalign. Atraia o público qualificado que busca estética.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nFoco em HOF. Preencha seus dias de harmonização com orçamentos reais.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nResultado Expresso. Para quem não quer esperar e precisa faturar agora.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nPlano da Sobrevivência. Lucre hoje para dominar o mercado amanhã.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nMotor de Leads. Sua clínica como uma máquina de agendamentos diários.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nVisibilidade Comprada. Apareça para todo o seu público alvo em horas.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nGestão Inteligente. Otimizamos campanhas diariamente para baixar o CPL.",
+                "**Parecer Sênior: Plano Lite Tráfego Pago**\nInício do Sucesso. Comece a vender no digital agora com o Lite Ads."
+            ],
+            LiteOrg: [
+                "**Parecer Sênior: Plano Lite Orgânico**\nBase de Autoridade. Sua clínica precisa de 'casa arrumada' e vitrine de luxo.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nPrimeiro Passo Estratégico. Perfil amador afasta pacientes de alto ticket.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nAutoridade Digital. Cuidaremos da sua identidade para transmitir confiança.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nVitrine que Vende. Preparamos seu perfil para futuras escalas de anúncios.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nMarketing Constante. Mantenha feed e stories ativos com artes profissionais.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nConexão e Engajamento. Conteúdo que gera desejo e educa o seu paciente.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nBranding Odontológico. Focaremos na sua técnica e história para marca forte.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nProfissionalismo Acessível. Sinta a diferença de uma equipe sênior cuidando de você.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nAlinhamento de Imagem. Seu perfil deve transparecer o luxo do seu serviço.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nEducação do Paciente. Facilitamos o fechamento de orçamentos na cadeira.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nIdentidade Consolidada. Visual das grandes redes no seu consultório local.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nFoco no Atendimento. Cuidamos do marketing para você cuidar da saúde.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nMarketing sem Stress. Tranquilidade de saber que sua marca está ativa todo dia.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nBase para Escala. Resolva o problema visual do seu Instagram definitivamente.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nAutoridade em Vídeos. Edição dinâmica de Reels para prender a atenção.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nLegado Digital. Comece a construir sua história com design de alto padrão.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nPrimeiro Degrau do Sucesso. Engaje seu público antes de investir em Ads.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nQualidade Visual DF. Artes exclusivas e alinhadas ao seu posicionamento.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nConsultoria de Imagem. Seu braço direito criativo para o posicionamento.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nInicie sua Jornada. Plano focado em presença constante nas redes sociais.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nDesign para Dentistas. Visual que transmite biossegurança e higiene.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nPresença nos Stories. Humanize sua marca para gerar confiança no particular.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nCalendário Editorial. Planejamento para nunca ficar no silêncio digital.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nAutoridade Construída. Transformamos sua técnica em artes didáticas.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nIdentidade Blindada. Proteja sua marca com consistência profissional.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nReels Profissionais. Vídeos com cara de cinema para atrair agendamentos.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nMarketing de Elegância. Fuja do comum com um feed que reflete seu valor.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nLeads Orgânicos. Atraia pacientes qualificados pelo conteúdo estratégico.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nGestão Criativa. Nossa equipe cuida da estética para você brilhar.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nVitrine de Sucesso. Mostre seus casos com a qualidade que a odonto exige.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nSegurança Digital. Redes profissionais sob nossa gestão estratégica.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nInovação Visual. Artes alinhadas às tendências do marketing médico.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nBranding de Resultado. Marca lembrada na hora do desejo estético.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nOrganização de Perfil. Destaques e Bio organizados para agendamento.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nPlano da Autoridade. Perfeito para ser a referência técnica da cidade.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nSuporte Comercial. Estamos prontos para artes de última hora para você.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nEngajamento de Valor. Conteúdo que gera valor real para o seguidor.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nConsolidação de Nome. Faça seu nome ser sinônimo de excelência local.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nDesign Exclusivo. Artes feitas do zero para sua clínica, sem templates.",
+                "**Parecer Sênior: Plano Lite Orgânico**\nA Base do Faturamento. Tenha a casa pronta para o tráfego pago amanhã."
+            ]
+        };
+
+        // LÓGICA DE PALAVRAS-CHAVE INTELIGENTE
+        function handleConsultoria() {
+            const inputEl = document.getElementById('ia-consult-text');
+            if(!inputEl) return;
+            const input = inputEl.value.toLowerCase();
+            if(!input) return alert("Por favor, descreva o seu desafio.");
+
+            let plan = "Prata"; 
+            
+            // Detecta palavras de negação (não, n, sem, pouca, baixo)
+            const hasNo = /\bnão\b|\bn\b|\bsem\b|\bpouca\b|\bpouco\b/.test(input);
+            const hasMoney = /dinheiro|verba|investir|financeiro|grana|investimento|recurso/.test(input);
+            const hasTraffic = /tráfego|trafego|anúncio|ads|vender|faturamento|leads|whatsapp|faturar|caixa|venda/.test(input);
+
+            // SISTEMA DE DECISÃO
+            if((input.includes("tenho dinheiro") || input.includes("investir")) && !hasNo) {
+                plan = "Premium";
+            } else if(hasNo && hasMoney) {
+                // Se diz "não tenho dinheiro" -> Prioriza o LiteAds se quiser faturamento, senão LiteOrg.
+                plan = hasTraffic ? "LiteAds" : "LiteOrg";
+            } else if(hasTraffic) {
+                plan = "LiteAds";
+            } else if(input.includes("equilíbrio") || input.includes("completo")) {
+                plan = "Prata";
+            } else {
+                plan = "LiteOrg";
+            }
+
+            const respArr = CONSULT_DATABASE[plan];
+            const finalResp = respArr[Math.floor(Math.random() * respArr.length)];
+            openModal("Análise Estratégica DF AI", finalResp);
+        }
+
+        function handleRoteiros() {
+            const topic = document.getElementById('ia-reels-topic').value;
+            const scripts = REELS_DATABASE[topic];
+            // Sorteia um dos 8 roteiros do tema
+            const randomScript = scripts[Math.floor(Math.random() * scripts.length)];
+            openModal("Sugestão de Reels (45s): " + topic, randomScript);
+        }
+
+        function playPlanVoice(plan, btn) {
+            window.speechSynthesis.cancel();
+            const msgs = {
+                lite_org: "Doutor, quer construir uma presença forte e engajada na internet de forma natural? O Plano Lite Orgânico é o seu ponto de partida essencial. Nele, nós assumimos o controle das suas redes sociais, criando artes profissionais para o seu feed e editando vídeos dinâmicos para Reels e Shorts. O foco aqui é crescer a sua autoridade no dia a dia, com o nosso suporte sempre à disposição em horário comercial. O investimento para esse cuidado contínuo é de mil e duzentos reais por mês.",
+                lite_ads: "Doutor, se o seu objetivo agora é atrair pacientes de forma mais rápida usando anúncios, o Plano Lite Tráfego Pago foi desenhado para você. Toda a nossa energia vai para a criação e gestão estratégica de campanhas no Facebook e no Instagram. Nós também editamos os vídeos com foco exclusivo em fazer os anúncios performarem melhor. É a estratégia ideal para injetar crescimento no seu consultório, com atendimento em horário comercial, por um investimento de mil e duzentos reais ao mês.",
+                prata: "Doutor, buscando o equilíbrio perfeito? O Plano Prata une o melhor dos dois mundos: o relacionamento do conteúdo orgânico com o poder de atração do tráfego pago. Você leva tudo do plano orgânico, mas com um grande diferencial: atendimento full time e reuniões semanais com a nossa equipe. Além de gerenciar seus anúncios no Facebook e Instagram, também criamos materiais offline para a sua clínica, como cartões de visita digitais. Uma máquina de atração otimizada por mil e novecentos reais mensais.",
+                premium: "Doutor, esta é a solução definitiva para você dominar o seu mercado. O Plano Premium entrega uma presença digital massiva. Além de tudo o que oferecemos no plano Prata, nós expandimos a sua captação de pacientes para todas as frentes: Facebook, Google e TikTok Ads. E para você ter total controle, liberamos um painel exclusivo em tempo real para acompanhar os resultados quando quiser. Precisou de arte? As solicitações são ilimitadas, incluindo toda a papelaria offline da sua clínica. É a nossa equipe completa jogando junto com você, por dois mil e quinhentos reais ao mês."
+            };
+            const u = new SpeechSynthesisUtterance(msgs[plan]);
+            u.lang = 'pt-BR'; u.rate = 1.05;
+            btn.classList.add('playing');
+            u.onend = () => { btn.classList.remove('playing'); };
+            window.speechSynthesis.speak(u);
+        }
+
+        function lotarAgenda() {
+            const proc = ["Avaliação - Invisalign", "Fechamento - Protocolo", "Sessão - HOF", "Lentes de Contato"];
+            for (let i = 1; i <= 4; i++) {
+                const s = document.getElementById('slot' + i);
+                s.classList.remove('ocupado');
+                s.querySelector('.agenda-status').innerText = "Horário Vazio";
+                setTimeout(() => {
+                    s.classList.add('ocupado');
+                    s.querySelector('.agenda-status').innerText = proc[i-1];
+                }, i * 600);
+            }
+        }
+
+        function calcularROI() {
+            let qtd = document.getElementById('slider-roi').value;
+            document.getElementById('qtd-pacientes').innerText = qtd;
+            let fat = qtd * 5000;
+            document.getElementById('faturamento').innerText = fat.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('lucro').innerText = (fat - 2500).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function openModal(t, c) {
+            document.getElementById('modal-title').innerText = t;
+            document.getElementById('ai-response').innerHTML = c.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            document.getElementById('ai-modal').style.display = "flex";
+        }
+        function closeModal() { document.getElementById('ai-modal').style.display = "none"; window.speechSynthesis.cancel(); }
+        
+        // Simulador de Rastreamento WhatsApp
+        function sendWppMsg(tipo) {
+            const chatbox = document.getElementById('wpp-chatbox');
+            const status = document.getElementById('typing-status');
+            
+            // Textos dinâmicos baseados no anúncio clicado
+            let origemTag = "";
+            let mensagem = "";
+
+            if (tipo === 'implante') {
+                origemTag = "🚀 Origem: Meta Ads | Campanha: Vídeo_Implante_V2 | Público: 45+ Anos";
+                mensagem = "Olá! Vi o vídeo de vocês no Instagram sobre os implantes sem dor e gostaria de saber como funciona a avaliação.";
+            } else if (tipo === 'invisalign') {
+                origemTag = "🚀 Origem: Meta Ads | Campanha: Carrossel_Invisalign | Público: Remarketing";
+                mensagem = "Oi! Acabei de ver o anúncio do aparelho transparente (Invisalign) e quero agendar minha consulta.";
+            } else if (tipo === 'lentes') {
+                origemTag = "🚀 Origem: Google Search | Palavra-chave: 'Lentes de contato dental preço'";
+                mensagem = "Bom dia. Pesquisei no Google sobre lentes de porcelana, encontrei o site de vocês e gostaria de fazer um orçamento.";
+            }
+
+            // Simula o paciente digitando
+            status.innerHTML = "<span style='color: #25D366; font-style: italic;'>digitando...</span>";
+            // Remove mensagens anteriores para ficar limpo a cada clique
+            chatbox.innerHTML = '';
+            setTimeout(() => {
+                // Monta a mensagem final com a "Tag invisível" revelada
+                const msgHTML = `
+                    <div class="msg-bubble">
+                        <span class="msg-tag"><i class="fa-solid fa-link"></i> ${origemTag}</span>
+                        ${mensagem}
+                        <div style="text-align: right; margin-top: 4px;">
+                            <span style="font-size: 10px; color: #8696a0;">Agora <i class="fa-solid fa-check-double" style="color: #53bdeb; margin-left: 2px;"></i></span>
+                        </div>
+                    </div>
+                `;
+                chatbox.innerHTML = msgHTML;
+                status.innerHTML = "online"; // Volta o status para online
+                
+                // Rola para o final do chat
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }, 1200);
+            // 1.2 segundos "digitando"
+        }
+
+        // 4. Animação Interativa do CRM Kanban (AUTOMATIZADA)
+        let isSimulating = false;
+        function animarCRM() {
+            if (isSimulating) return; // Evita cliques duplos durante a animação
+            
+            const btn = document.getElementById('btn-simular-crm');
+            const card = document.getElementById('lead-demo');
+            const col1 = document.getElementById('col-contato');
+            const col2 = document.getElementById('col-lead');
+            const col3 = document.getElementById('col-agendou');
+            const count1 = document.getElementById('count-1');
+            const count2 = document.getElementById('count-2');
+            const count3 = document.getElementById('count-3');
+            const revenue = document.getElementById('crm-revenue');
+
+            // Se o cartão já está no final, reseta o funil
+            if (card.parentElement === col3) {
+                card.style.borderLeftColor = "var(--roxo-vibrante)";
+                col1.appendChild(card);
+                count1.innerText = "1"; count2.innerText = "0"; count3.innerText = "0";
+                revenue.innerText = "R$ 0,00";
+                btn.innerHTML = "<i class='fa-solid fa-play'></i> Simular Fechamento";
+                btn.style.background = "linear-gradient(90deg, #10B981, #059669)";
+                return;
+            }
+
+            // Inicia a Automação
+            isSimulating = true;
+            btn.innerHTML = "<i class='fa-solid fa-spinner fa-spin'></i> Qualificando Lead...";
+            btn.style.background = "linear-gradient(90deg, #F59E0B, #D97706)"; // Muda para laranja
+
+            // Passo 1: Move para Lead Qualificado (Após 1 segundo)
+            setTimeout(() => {
+                card.classList.add('moving');
+                setTimeout(() => {
+                    col2.appendChild(card);
+                    card.classList.remove('moving');
+                    count1.innerText = "0"; count2.innerText = "1";
+                    btn.innerHTML = "<i class='fa-solid fa-spinner fa-spin'></i> Agendando Consulta...";
+                }, 400);
+            }, 800);
+
+            // Passo 2: Move para Agendado e gera Faturamento (Após mais 1.5 segundos)
+            setTimeout(() => {
+                card.classList.add('moving');
+                setTimeout(() => {
+                    card.style.borderLeftColor = "#25D366"; // Borda do cartão fica verde sucesso
+                    col3.appendChild(card);
+                    card.classList.remove('moving');
+                    count2.innerText = "0"; count3.innerText = "1";
+                    
+                    revenue.innerText = "R$ 4.500,00";
+                    revenue.style.animation = "pulse 1s";
+                    
+                    btn.innerHTML = "<i class='fa-solid fa-rotate-left'></i> Simular Novamente";
+                    btn.style.background = "linear-gradient(90deg, #8B5CF6, #C026D3)"; // Muda para as cores da DF Soluções
+                    isSimulating = false;
+                }, 400);
+            }, 2600);
+        }
+
+        window.onload = calcularROI;
+    </script>
+</body>
+</html>
