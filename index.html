@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SEO BASE -->
 <title>DF Soluções | Agência de Marketing Digital para Odontologia e Imobiliárias</title>
 <meta name="description" content="Agência de marketing digital especializada em clínicas odontológicas e imobiliárias. Tráfego pago, redes sociais, CRM e estratégias de crescimento para quem quer resultado real.">
 <meta name="keywords" content="agência de marketing digital, marketing para dentistas, marketing para imobiliárias, tráfego pago, gestão de redes sociais, DF Soluções">
-<meta name="author" content="DF Soluções">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.dfpublicidade.com.br/">
 
-<!-- Open Graph / Social -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://www.dfpublicidade.com.br/">
@@ -23,13 +20,11 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DF Soluções | Marketing Digital Especializado">
-<meta name="twitter:description" content="Agência de marketing para odontologia e imobiliárias. Especialistas em gerar resultado real.">
+<meta name="twitter:description" content="Agência de marketing para odontologia e imobiliárias.">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
 
-<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,162 +35,69 @@
   "description": "Agência de marketing digital especializada em clínicas odontológicas e imobiliárias.",
   "url": "https://www.dfpublicidade.com.br",
   "logo": "https://www.dfpublicidade.com.br/logo.png",
-  "image": "https://www.dfpublicidade.com.br/logo.png",
   "telephone": "+55-11-99999-9999",
   "email": "contato@dfpublicidade.com.br",
   "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "BR",
-    "addressRegion": "SP"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Brasil"
-  },
-  "serviceType": ["Marketing Digital", "Tráfego Pago", "Gestão de Redes Sociais", "Consultoria em Marketing"],
-  "knowsAbout": ["Marketing Odontológico", "Marketing Imobiliário", "Facebook Ads", "Google Ads", "Instagram Marketing"],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "47",
-    "bestRating": "5"
-  }
+  "address": {"@type": "PostalAddress", "addressCountry": "BR", "addressRegion": "SP"},
+  "areaServed": {"@type": "Country", "name": "Brasil"},
+  "serviceType": ["Marketing Digital", "Tráfego Pago", "Gestão de Redes Sociais"],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "47", "bestRating": "5"}
 }
 </script>
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<!-- Styles -->
 <link rel="stylesheet" href="styles.css">
 
 <style>
-/* ===== PAGE-SPECIFIC: HOMEPAGE ===== */
-
+/* HOMEPAGE SPECIFIC */
 .hero {
   position: relative;
-  padding: 180px 0 80px;
-  min-height: 92vh;
+  padding: 180px 0 100px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
 }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 80px;
-  align-items: center;
+.hero-content {
   width: 100%;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.hero-left .eyebrow { margin-bottom: 28px; }
-.hero h1 { margin-bottom: 32px; }
+.hero .eyebrow { margin-bottom: 32px; }
+.hero h1 { margin-bottom: 40px; }
 .hero h1 .line { display: block; }
 .hero-desc {
-  font-size: 18px;
+  font-size: clamp(17px, 1.5vw, 20px);
   color: var(--muted);
-  max-width: 520px;
+  max-width: 680px;
+  margin: 0 auto 48px;
   line-height: 1.7;
-  margin-bottom: 40px;
 }
-.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-
-.hero-panel {
-  position: relative;
-  background: linear-gradient(180deg, rgba(26, 26, 46, 0.6), rgba(15, 5, 32, 0.9));
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  overflow: hidden;
-}
-.hero-panel::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--roxo), var(--magenta), transparent);
-}
-.hero-panel-label {
-  font-family: var(--f-body);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.hero-panel-label .live {
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  color: var(--lav);
-}
-.hero-panel-label .live::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--magenta);
-  animation: blink 1.5s ease-in-out infinite;
-}
-@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
-
-.hero-stat {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.hero-stat:last-child { border-bottom: none; }
-.hero-stat-label { font-size: 13px; color: var(--muted); }
-.hero-stat-value {
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: 32px;
-  color: var(--white);
-  letter-spacing: -0.02em;
-}
-.hero-stat-value .unit {
-  font-size: 16px;
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 100px;
+  font-size: 12px;
   color: var(--lilac);
-  font-weight: 600;
-  margin-left: 4px;
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 32px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 28px;
 }
-.hero-scroll-line {
-  width: 60px; height: 1px;
-  background: var(--roxo);
-  position: relative; overflow: hidden;
-}
-.hero-scroll-line::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; height: 100%;
-  width: 20px;
-  background: var(--magenta);
-  animation: scrollHint 2s ease-in-out infinite;
-}
-@keyframes scrollHint {
-  0% { transform: translateX(-20px); }
-  100% { transform: translateX(60px); }
+.hero-badge .hb-pulse {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #4ADE80;
+  box-shadow: 0 0 8px #4ADE80;
+  animation: pulse 1.5s ease-in-out infinite;
 }
 
 /* NICHE CARDS */
@@ -213,27 +115,11 @@
   padding: 48px 40px 40px;
   text-decoration: none;
   overflow: hidden;
-  transition: all 0.5s var(--ease-out);
   min-height: 440px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.niche-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.15), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.5s var(--ease);
-}
-.niche-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--border-strong);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(139, 92, 246, 0.2);
-}
-.niche-card:hover::before { opacity: 1; }
-
 .niche-card-number {
   font-family: var(--f-display);
   font-weight: 800;
@@ -263,12 +149,7 @@
   margin-bottom: 28px;
   max-width: 380px;
 }
-.niche-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 28px;
-}
+.niche-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
 .niche-card-tag {
   padding: 4px 10px;
   font-size: 11px;
@@ -286,14 +167,8 @@
   font-family: var(--f-display);
   font-weight: 700;
   font-size: 14px;
-  letter-spacing: -0.01em;
   padding-top: 24px;
   border-top: 1px solid var(--border);
-  transition: gap 0.3s var(--ease);
-}
-.niche-card:hover .niche-card-cta {
-  gap: 16px;
-  color: var(--lav);
 }
 .niche-card-bg {
   position: absolute;
@@ -310,137 +185,6 @@
   white-space: nowrap;
 }
 
-/* METHOD */
-.method-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
-.method-item {
-  position: relative;
-  padding: 32px 0 0;
-  border-top: 1px solid var(--border);
-  transition: border-color 0.3s var(--ease);
-}
-.method-item::before {
-  content: '';
-  position: absolute;
-  top: -1px; left: 0;
-  width: 40px; height: 2px;
-  background: var(--grd2);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s var(--ease);
-}
-.method-item:hover::before { transform: scaleX(1); }
-.method-num {
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: 13px;
-  color: var(--roxo);
-  letter-spacing: 0.1em;
-  margin-bottom: 20px;
-}
-.method-title {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 22px;
-  color: var(--white);
-  margin-bottom: 14px;
-  letter-spacing: -0.02em;
-}
-.method-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-/* SERVICES BENTO */
-.services-bento {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: minmax(240px, auto);
-  gap: 20px;
-  margin-top: 40px;
-}
-.service-card {
-  position: relative;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px;
-  overflow: hidden;
-  transition: all 0.4s var(--ease);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.service-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-strong);
-  background: rgba(26, 26, 46, 0.75);
-}
-.service-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-.service-icon {
-  width: 48px; height: 48px;
-  border-radius: 14px;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: var(--lav);
-}
-.service-num {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 12px;
-  color: var(--dim);
-  letter-spacing: 0.1em;
-}
-.service-title {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 22px;
-  color: var(--white);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-bottom: 10px;
-}
-.service-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.65;
-}
-.bento-wide { grid-column: span 3; }
-.bento-med { grid-column: span 2; }
-.bento-small { grid-column: span 2; }
-.service-card.featured {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(192, 38, 211, 0.1));
-  border-color: rgba(139, 92, 246, 0.3);
-}
-.service-card.featured .service-icon {
-  background: var(--grd2);
-  color: var(--white);
-  border: none;
-}
-.service-card.featured .service-title-big {
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: 36px;
-  letter-spacing: -0.03em;
-  color: var(--white);
-  margin-bottom: 16px;
-  line-height: 1;
-}
-
 /* STATS */
 .stats {
   padding: 100px 0;
@@ -448,7 +192,7 @@
   border-bottom: 1px solid var(--border);
   background: rgba(15, 5, 32, 0.5);
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .stats-grid {
   display: grid;
@@ -482,7 +226,7 @@
 }
 
 /* TESTIMONIAL */
-.testimonial { padding: 120px 0; }
+.testimonial { padding: 120px 0; position: relative; z-index: 2; }
 .testimonial-quote {
   font-family: var(--f-display);
   font-weight: 600;
@@ -502,11 +246,7 @@
   margin-bottom: 20px;
   font-family: Georgia, serif;
 }
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+.testimonial-author { display: flex; align-items: center; gap: 16px; }
 .testimonial-avatar {
   width: 56px; height: 56px;
   border-radius: 50%;
@@ -519,17 +259,8 @@
   color: var(--white);
   font-size: 20px;
 }
-.testimonial-name {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-.testimonial-role {
-  font-size: 13px;
-  color: var(--muted);
-}
+.testimonial-name { font-family: var(--f-display); font-weight: 700; font-size: 16px; color: var(--white); margin-bottom: 4px; }
+.testimonial-role { font-size: 13px; color: var(--muted); }
 
 /* CTA */
 .cta-block {
@@ -542,22 +273,12 @@
   text-align: center;
 }
 .cta-block::before, .cta-block::after {
-  content: '';
-  position: absolute;
+  content: ''; position: absolute;
   width: 400px; height: 400px;
-  border-radius: 50%;
-  filter: blur(80px);
+  border-radius: 50%; filter: blur(80px);
 }
-.cta-block::before {
-  background: var(--roxo);
-  top: -100px; left: -100px;
-  opacity: 0.2;
-}
-.cta-block::after {
-  background: var(--magenta);
-  bottom: -100px; right: -100px;
-  opacity: 0.2;
-}
+.cta-block::before { background: var(--roxo); top: -100px; left: -100px; opacity: 0.2; }
+.cta-block::after { background: var(--magenta); bottom: -100px; right: -100px; opacity: 0.2; }
 .cta-block > * { position: relative; z-index: 1; }
 .cta-block h2 {
   font-family: var(--f-display);
@@ -575,28 +296,16 @@
   margin: 0 auto 40px;
   line-height: 1.7;
 }
-.cta-block .btns {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+.cta-block .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 @media (max-width: 1050px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .niches { grid-template-columns: 1fr; }
-  .method-grid { grid-template-columns: repeat(2, 1fr); }
-  .services-bento { grid-template-columns: 1fr 1fr; }
-  .bento-wide, .bento-med, .bento-small { grid-column: span 2; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 48px 20px; }
   .stat-item { border-right: none; }
   .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
 }
 @media (max-width: 700px) {
-  .hero { padding: 140px 0 40px; }
-  .method-grid { grid-template-columns: 1fr; }
-  .services-bento { grid-template-columns: 1fr; }
-  .bento-wide, .bento-med, .bento-small { grid-column: span 1; }
+  .hero { padding: 140px 0 60px; }
   .stats-grid { grid-template-columns: 1fr; }
   .stat-item { border-right: none !important; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
   .stat-item:last-child { border-bottom: none; }
@@ -608,6 +317,14 @@
 </head>
 <body>
 
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- 3D BG -->
+<canvas id="bg3d"></canvas>
+
+<!-- ATMOSPHERE FALLBACK -->
 <div class="atmosphere">
   <div class="dotgrid"></div>
   <div class="orb orb-1"></div>
@@ -615,13 +332,13 @@
   <div class="orb orb-3"></div>
 </div>
 
-<a href="https://wa.me/5511958053699?text=Olá,%20vim%20pelo%20site%20da%20DF%20Soluções%20e%20gostaria%20de%20conversar." class="float-wpp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<a href="https://wa.me/5511999999999?text=Olá,%20vim%20pelo%20site%20da%20DF%20Soluções." class="float-wpp" target="_blank" rel="noopener" aria-label="WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <nav class="nav" id="nav" aria-label="Navegação principal">
-  <a href="index.html" class="nav-logo" aria-label="DF Soluções — Início">
-    <img src="logo.png" alt="Logo DF Soluções">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="DF Soluções">
     <div class="nav-logo-text">
       DF Soluções
       <span>Marketing Digital</span>
@@ -633,7 +350,7 @@
     <a href="imobiliaria.html" class="nav-link">Imobiliária</a>
     <a href="#contato" class="nav-link">Contato</a>
   </div>
-  <a href="https://wa.me/5511958053699?text=Olá,%20vim%20pelo%20site%20e%20quero%20uma%20conversa." class="nav-cta" target="_blank" rel="noopener">
+  <a href="https://wa.me/5511999999999?text=Olá,%20vim%20pelo%20site." class="nav-cta" target="_blank" rel="noopener" data-magnetic>
     <i class="fa-brands fa-whatsapp"></i> Falar agora
   </a>
   <button class="nav-burger" id="navBurger" aria-label="Menu">
@@ -641,60 +358,35 @@
   </button>
 </nav>
 
+<!-- HERO -->
 <header class="hero">
   <div class="container">
-    <div class="hero-grid">
-      <div class="hero-left">
-        <div class="eyebrow">Agência Digital · 2026</div>
-        <h1 class="display display-lg">
-          <span class="line">Marketing que</span>
-          <span class="line">gera <span class="gradient-text">resultado</span></span>
-          <span class="line outline-text">de verdade.</span>
-        </h1>
-        <p class="hero-desc">
-          Somos uma agência digital especializada em dois mercados: <strong style="color:var(--white)">odontologia</strong> e <strong style="color:var(--white)">imobiliárias</strong>. Foco em performance, criatividade e crescimento sustentável.
-        </p>
-        <div class="hero-ctas">
-          <a href="odontologia.html" class="btn btn-primary">
-            Para clínicas odontológicas <i class="fa-solid fa-arrow-right"></i>
-          </a>
-          <a href="imobiliaria.html" class="btn btn-ghost">
-            Para imobiliárias <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
+    <div class="hero-content reveal">
+      <div class="hero-badge">
+        <span class="hb-pulse"></span>
+        Aceitando novos clientes · 2026
       </div>
-
-      <aside class="hero-panel" aria-label="Indicadores da agência">
-        <div class="hero-panel-label">
-          <span>Indicadores</span>
-          <span class="live">Ao vivo</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-label">Clientes ativos</span>
-          <span class="hero-stat-value">120<span class="unit">+</span></span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-label">Faturamento gerado</span>
-          <span class="hero-stat-value">4.2<span class="unit">M</span></span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-label">ROI médio dos clientes</span>
-          <span class="hero-stat-value">3<span class="unit">x</span></span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-label">Retenção anual</span>
-          <span class="hero-stat-value">98<span class="unit">%</span></span>
-        </div>
-      </aside>
+      <h1 class="display display-lg">
+        <span class="line">Marketing que</span>
+        <span class="line">gera <span class="gradient-text">resultado</span></span>
+        <span class="line outline-text">de verdade.</span>
+      </h1>
+      <p class="hero-desc">
+        Agência digital especializada em <strong style="color:var(--white)">odontologia</strong> e <strong style="color:var(--white)">imobiliárias</strong>. Performance, criatividade e crescimento para quem cansou de agência que só entrega relatório bonito.
+      </p>
+      <div class="hero-ctas">
+        <a href="odontologia.html" class="btn btn-primary" data-magnetic>
+          Para clínicas <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="imobiliaria.html" class="btn btn-ghost" data-magnetic>
+          Para imobiliárias <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
-  </div>
-
-  <div class="hero-scroll">
-    <span class="hero-scroll-line"></span>
-    Role para explorar
   </div>
 </header>
 
+<!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <div class="marquee-item"><span>ODONTOLOGIA</span> <span class="dot"></span> <span class="outline-text">IMOBILIÁRIA</span> <span class="dot"></span> <span>PERFORMANCE</span> <span class="dot"></span> <span class="outline-text">TRÁFEGO PAGO</span> <span class="dot"></span> <span>REDES SOCIAIS</span> <span class="dot"></span></div>
@@ -702,43 +394,42 @@
   </div>
 </div>
 
-<section class="section" id="especialidades" aria-labelledby="sec-niches">
-  <div class="section-number">01 / 05</div>
+<!-- NICHES -->
+<section class="section" id="especialidades">
+  <div class="section-number">01 / 06</div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow">Especialidades</div>
-      <h2 id="sec-niches" class="display display-md">
-        Não somos para<br>todo mundo.
-      </h2>
-      <p>Somos especialistas em dois mercados bem específicos onde dominamos a linguagem, o comportamento do cliente e as estratégias que realmente funcionam. Escolha o seu nicho para ver como trabalhamos.</p>
+      <h2 class="display display-md">Não somos para<br>todo mundo.</h2>
+      <p>Somos especialistas em dois mercados onde dominamos a linguagem, o comportamento do cliente e as estratégias que realmente funcionam. Escolha o seu nicho.</p>
     </div>
 
     <div class="niches">
-      <a href="odontologia.html" class="niche-card reveal" aria-label="Página focada em marketing para clínicas odontológicas">
+      <a href="odontologia.html" class="niche-card reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <div>
           <div class="niche-card-number">01 / ESPECIALIDADE</div>
           <div class="niche-card-emoji">🦷</div>
           <h3 class="niche-card-title">Para<br>odontologia</h3>
-          <p class="niche-card-desc">Do implante às lentes de contato, dominamos a linguagem do paciente particular. Lotamos agendas de clínicas com pacientes de alto ticket.</p>
+          <p class="niche-card-desc">Do implante às lentes de contato, dominamos a linguagem do paciente particular. Lotamos agendas com pacientes de alto ticket.</p>
           <div class="niche-card-tags">
             <span class="niche-card-tag">Implantes</span>
-            <span class="niche-card-tag">Lentes de Contato</span>
+            <span class="niche-card-tag">Lentes</span>
             <span class="niche-card-tag">Invisalign</span>
             <span class="niche-card-tag">HOF</span>
           </div>
         </div>
-        <div class="niche-card-cta">
-          Ver página Odontologia <i class="fa-solid fa-arrow-right"></i>
-        </div>
+        <div class="niche-card-cta">Ver página Odontologia <i class="fa-solid fa-arrow-right"></i></div>
         <div class="niche-card-bg">ODONTO</div>
       </a>
 
-      <a href="imobiliaria.html" class="niche-card reveal reveal-delay-1" aria-label="Página focada em marketing para imobiliárias e corretores">
+      <a href="imobiliaria.html" class="niche-card reveal reveal-delay-1" data-tilt>
+        <div class="tilt-glow"></div>
         <div>
           <div class="niche-card-number">02 / ESPECIALIDADE</div>
           <div class="niche-card-emoji">🏢</div>
           <h3 class="niche-card-title">Para<br>imobiliárias</h3>
-          <p class="niche-card-desc">Captamos compradores e locatários qualificados. Construímos a autoridade digital que transforma imobiliárias em referência no seu mercado.</p>
+          <p class="niche-card-desc">Captamos compradores e locatários qualificados. Construímos autoridade digital que transforma imobiliárias em referência.</p>
           <div class="niche-card-tags">
             <span class="niche-card-tag">Meta Ads</span>
             <span class="niche-card-tag">Google Ads</span>
@@ -746,132 +437,250 @@
             <span class="niche-card-tag">Locação</span>
           </div>
         </div>
-        <div class="niche-card-cta">
-          Ver página Imobiliária <i class="fa-solid fa-arrow-right"></i>
-        </div>
+        <div class="niche-card-cta">Ver página Imobiliária <i class="fa-solid fa-arrow-right"></i></div>
         <div class="niche-card-bg">IMÓVEIS</div>
       </a>
     </div>
   </div>
 </section>
 
+<!-- MIND MAP -->
 <section class="section" id="metodo">
-  <div class="section-number">02 / 05</div>
+  <div class="section-number">02 / 06</div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow">Método</div>
-      <h2 class="display display-md">Como<br>trabalhamos.</h2>
-      <p>Um processo estruturado, sem improviso. Quatro etapas que garantem previsibilidade de resultado desde o primeiro mês de trabalho.</p>
+      <h2 class="display display-md">O mapa<br>da nossa operação.</h2>
+      <p>Quatro etapas conectadas. Cada uma alimenta a próxima, formando um ciclo de crescimento contínuo. Passe o mouse nos nós para ver como tudo se conecta.</p>
     </div>
 
-    <div class="method-grid">
-      <div class="method-item reveal">
-        <div class="method-num">ETAPA 01</div>
-        <h3 class="method-title">Diagnóstico</h3>
-        <p class="method-desc">Analisamos seu mercado, concorrentes, ofertas e histórico para entender onde estão as maiores oportunidades de crescimento.</p>
+    <div class="mindmap" id="mindmap">
+      <svg class="mindmap-svg" viewBox="0 0 1000 770" preserveAspectRatio="xMidYMid meet">
+        <!-- Connections from center to satellites -->
+        <path class="mm-connection" data-connects="diag estr exec esc" d="M 500 385 L 220 150" />
+        <path class="mm-connection" data-connects="diag estr exec esc" d="M 500 385 L 780 150" />
+        <path class="mm-connection" data-connects="diag estr exec esc" d="M 500 385 L 220 620" />
+        <path class="mm-connection" data-connects="diag estr exec esc" d="M 500 385 L 780 620" />
+        <!-- Ring connections (between satellites) -->
+        <path class="mm-connection" data-connects="diag estr" d="M 220 150 Q 500 80 780 150" fill="none" />
+        <path class="mm-connection" data-connects="estr exec" d="M 780 150 Q 880 385 780 620" fill="none" />
+        <path class="mm-connection" data-connects="exec esc" d="M 780 620 Q 500 710 220 620" fill="none" />
+        <path class="mm-connection" data-connects="esc diag" d="M 220 620 Q 120 385 220 150" fill="none" />
+      </svg>
+
+      <!-- Core -->
+      <div class="mm-node mm-node-core" style="top: 50%; left: 50%;">
+        <span class="mm-label">Núcleo</span>
+        <span class="mm-title">DF Soluções</span>
+        <span class="mm-sub">Sua agência digital</span>
       </div>
-      <div class="method-item reveal reveal-delay-1">
-        <div class="method-num">ETAPA 02</div>
-        <h3 class="method-title">Estratégia</h3>
-        <p class="method-desc">Montamos o plano de ataque com canais, orçamento, criativos e metas claras de resultado mensurável.</p>
+
+      <!-- Satellites -->
+      <div class="mm-node" data-stage="diag" style="top: 19.5%; left: 22%;">
+        <span class="mm-label">Etapa 01</span>
+        <span class="mm-title">🔍 Diagnóstico</span>
+        <span class="mm-sub">Mercado · Concorrência · Histórico</span>
       </div>
-      <div class="method-item reveal reveal-delay-2">
-        <div class="method-num">ETAPA 03</div>
-        <h3 class="method-title">Execução</h3>
-        <p class="method-desc">Colocamos campanhas no ar, criamos conteúdo e otimizamos diariamente. Sem terceirizar, sem enrolar.</p>
+      <div class="mm-node" data-stage="estr" style="top: 19.5%; left: 78%;">
+        <span class="mm-label">Etapa 02</span>
+        <span class="mm-title">🎯 Estratégia</span>
+        <span class="mm-sub">Canais · Budget · Criativos</span>
       </div>
-      <div class="method-item reveal reveal-delay-3">
-        <div class="method-num">ETAPA 04</div>
-        <h3 class="method-title">Escala</h3>
-        <p class="method-desc">Com dados em mãos, escalamos o que funciona e cortamos o desperdício. Crescimento previsível e sustentável.</p>
+      <div class="mm-node" data-stage="exec" style="top: 80.5%; left: 78%;">
+        <span class="mm-label">Etapa 03</span>
+        <span class="mm-title">⚡ Execução</span>
+        <span class="mm-sub">Ads · Conteúdo · Otimização</span>
+      </div>
+      <div class="mm-node" data-stage="esc" style="top: 80.5%; left: 22%;">
+        <span class="mm-label">Etapa 04</span>
+        <span class="mm-title">📈 Escala</span>
+        <span class="mm-sub">Dados · Corte · Crescimento</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- TIMELINE SERVICES -->
 <section class="section" id="servicos">
-  <div class="section-number">03 / 05</div>
+  <div class="section-number">03 / 06</div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow">Serviços</div>
-      <h2 class="display display-md">
-        Tudo que uma agência<br>moderna precisa oferecer.
-      </h2>
-      <p>Serviços integrados e pensados para gerar crescimento real em clínicas e imobiliárias. Sem improvisação.</p>
+      <h2 class="display display-md">Tudo que uma agência<br>moderna entrega.</h2>
+      <p>Serviços integrados e pensados para gerar crescimento real. Role a página para conhecer cada um.</p>
     </div>
 
-    <div class="services-bento">
-      <article class="service-card featured bento-wide reveal">
-        <div class="service-card-header">
-          <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-          <span class="service-num">SVC 01</span>
-        </div>
-        <div>
-          <h3 class="service-title-big">Gestão de tráfego pago</h3>
-          <p class="service-desc">Meta Ads, Google Ads e TikTok Ads gerenciados por quem vive de performance. Campanhas otimizadas diariamente para o menor custo por lead qualificado e o maior retorno sobre o investimento.</p>
-        </div>
-      </article>
+    <div class="timeline" id="timeline">
+      <div class="tl-track">
+        <div class="tl-progress"></div>
+      </div>
 
-      <article class="service-card bento-med reveal reveal-delay-1">
-        <div class="service-card-header">
-          <div class="service-icon"><i class="fa-brands fa-instagram"></i></div>
-          <span class="service-num">SVC 02</span>
+      <div class="tl-item">
+        <span class="tl-number">01</span>
+        <h3 class="tl-title">Gestão de tráfego pago</h3>
+        <p class="tl-desc">Meta Ads, Google Ads e TikTok Ads gerenciados por quem vive de performance. Campanhas otimizadas diariamente para o menor custo por lead qualificado e o maior retorno sobre o investimento.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Meta Ads</span>
+          <span class="tl-tag">Google Ads</span>
+          <span class="tl-tag">TikTok Ads</span>
         </div>
-        <div>
-          <h3 class="service-title">Redes sociais</h3>
-          <p class="service-desc">Conteúdo estratégico, artes profissionais e Reels editados que constroem autoridade e geram desejo no seu público-alvo.</p>
-        </div>
-      </article>
+      </div>
 
-      <article class="service-card bento-small reveal reveal-delay-2">
-        <div class="service-card-header">
-          <div class="service-icon"><i class="fa-brands fa-whatsapp"></i></div>
-          <span class="service-num">SVC 03</span>
+      <div class="tl-item">
+        <span class="tl-number">02</span>
+        <h3 class="tl-title">Gestão de redes sociais</h3>
+        <p class="tl-desc">Conteúdo estratégico, artes profissionais e Reels editados que constroem autoridade e geram desejo no público-alvo. Perfil vivo, não museu de fotos antigas.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Instagram</span>
+          <span class="tl-tag">Facebook</span>
+          <span class="tl-tag">Reels & Shorts</span>
         </div>
-        <div>
-          <h3 class="service-title">Rastreamento</h3>
-          <p class="service-desc">UTMs e links dinâmicos que identificam de qual anúncio veio cada lead no WhatsApp.</p>
-        </div>
-      </article>
+      </div>
 
-      <article class="service-card bento-small reveal">
-        <div class="service-card-header">
-          <div class="service-icon"><i class="fa-solid fa-filter"></i></div>
-          <span class="service-num">SVC 04</span>
+      <div class="tl-item">
+        <span class="tl-number">03</span>
+        <h3 class="tl-title">Landing pages de alta conversão</h3>
+        <p class="tl-desc">Páginas de venda desenvolvidas sob medida para cada campanha. Propriedade 100% sua, sem mensalidades ocultas. Copy persuasiva, design limpo e carregamento rápido.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Design</span>
+          <span class="tl-tag">Copywriting</span>
+          <span class="tl-tag">A/B Testing</span>
         </div>
-        <div>
-          <h3 class="service-title">CRM & funil</h3>
-          <p class="service-desc">Kanban visual de leads para que a equipe comercial nunca esqueça um orçamento.</p>
-        </div>
-      </article>
+      </div>
 
-      <article class="service-card bento-med reveal reveal-delay-1">
-        <div class="service-card-header">
-          <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
-          <span class="service-num">SVC 05</span>
+      <div class="tl-item">
+        <span class="tl-number">04</span>
+        <h3 class="tl-title">CRM e funil de vendas</h3>
+        <p class="tl-desc">Kanban visual de leads para sua equipe comercial nunca esquecer um orçamento. Automações, lembretes e etapas claras desde o primeiro contato até o fechamento.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Kanban</span>
+          <span class="tl-tag">Automação</span>
+          <span class="tl-tag">Integração WPP</span>
         </div>
-        <div>
-          <h3 class="service-title">Landing pages</h3>
-          <p class="service-desc">Páginas de venda de alta conversão desenvolvidas sob medida. Propriedade 100% sua, sem mensalidades ocultas.</p>
-        </div>
-      </article>
+      </div>
 
-      <article class="service-card bento-wide reveal reveal-delay-2">
-        <div class="service-card-header">
-          <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
-          <span class="service-num">SVC 06</span>
+      <div class="tl-item">
+        <span class="tl-number">05</span>
+        <h3 class="tl-title">Rastreamento avançado</h3>
+        <p class="tl-desc">UTMs, links dinâmicos e Conversion API que identificam exatamente de qual anúncio veio cada lead no WhatsApp. Fim do achismo sobre o que está funcionando.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">UTM Tracking</span>
+          <span class="tl-tag">Conversion API</span>
+          <span class="tl-tag">GA4</span>
         </div>
-        <div>
-          <h3 class="service-title">Consultoria estratégica</h3>
-          <p class="service-desc">Reuniões semanais ou mensais para analisar dados, ajustar estratégias e garantir que seu investimento em marketing está gerando o retorno esperado. Nada de relatório só no fim do mês — você acompanha de perto.</p>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-number">06</span>
+        <h3 class="tl-title">Consultoria estratégica</h3>
+        <p class="tl-desc">Reuniões semanais ou mensais para analisar dados, ajustar estratégias e garantir que seu investimento em marketing está gerando o retorno esperado. Você acompanha de perto, não recebe relatório só no fim do mês.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Reuniões</span>
+          <span class="tl-tag">Relatórios</span>
+          <span class="tl-tag">Análise de dados</span>
         </div>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="stats" aria-labelledby="sec-stats">
-  <div class="section-number" style="top:40px">04 / 05</div>
+<!-- DASHBOARD -->
+<section class="section">
+  <div class="section-number">04 / 06</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Painel de controle</div>
+      <h2 class="display display-md">Seu marketing,<br>em tempo real.</h2>
+      <p>Uma amostra do painel que você acompanha como cliente DF Soluções. Leads entrando, custo por lead caindo, origem de tráfego clara. Fim do "confia em mim".</p>
+    </div>
+
+    <div class="dashboard reveal" id="dashboard" data-tilt>
+      <div class="tilt-glow"></div>
+      <div class="dash-header">
+        <div class="dash-title">
+          <i class="fa-solid fa-chart-simple"></i>
+          Painel DF Soluções · Demo
+        </div>
+        <div class="dash-live">Atualização ao vivo</div>
+      </div>
+
+      <div class="dash-grid">
+        <!-- Chart column -->
+        <div>
+          <div class="dash-chart-wrap">
+            <div class="dash-chart-header">
+              <div>
+                <div class="dash-chart-label">Leads captados · últimos 30 dias</div>
+                <div class="dash-chart-value" data-live-count="247">247</div>
+              </div>
+              <div style="text-align:right;">
+                <div class="dash-chart-label">Tendência</div>
+                <div style="color:#4ADE80; font-weight:600; font-size:15px; margin-top:4px;">
+                  <i class="fa-solid fa-arrow-trend-up"></i> +34% vs mês anterior
+                </div>
+              </div>
+            </div>
+            <svg id="dashChart" viewBox="0 0 600 200" preserveAspectRatio="none"></svg>
+          </div>
+
+          <div class="dash-sources">
+            <div class="dash-sources-title">Origem dos leads</div>
+            <div class="dash-bar">
+              <span class="dash-bar-name">Meta Ads</span>
+              <div class="dash-bar-track"><div class="dash-bar-fill" data-width="62"></div></div>
+              <span class="dash-bar-val">62%</span>
+            </div>
+            <div class="dash-bar">
+              <span class="dash-bar-name">Google Ads</span>
+              <div class="dash-bar-track"><div class="dash-bar-fill" data-width="24"></div></div>
+              <span class="dash-bar-val">24%</span>
+            </div>
+            <div class="dash-bar">
+              <span class="dash-bar-name">Instagram</span>
+              <div class="dash-bar-track"><div class="dash-bar-fill" data-width="9"></div></div>
+              <span class="dash-bar-val">9%</span>
+            </div>
+            <div class="dash-bar">
+              <span class="dash-bar-name">Direto</span>
+              <div class="dash-bar-track"><div class="dash-bar-fill" data-width="5"></div></div>
+              <span class="dash-bar-val">5%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPIs column -->
+        <div>
+          <div class="dash-kpis">
+            <div class="dash-kpi">
+              <div class="dash-kpi-label">Custo por lead</div>
+              <div class="dash-kpi-value" data-kpi="18.40" data-prefix="R$ " data-decimals="2">R$ 0</div>
+              <div class="dash-kpi-delta down"><i class="fa-solid fa-arrow-down"></i> -42%</div>
+            </div>
+            <div class="dash-kpi">
+              <div class="dash-kpi-label">Taxa de conversão</div>
+              <div class="dash-kpi-value" data-kpi="8.6" data-suffix="%" data-decimals="1">0%</div>
+              <div class="dash-kpi-delta up"><i class="fa-solid fa-arrow-up"></i> +2,3pp</div>
+            </div>
+            <div class="dash-kpi">
+              <div class="dash-kpi-label">ROI estimado</div>
+              <div class="dash-kpi-value" data-kpi="4.2" data-suffix="x" data-decimals="1">0x</div>
+              <div class="dash-kpi-delta up"><i class="fa-solid fa-arrow-up"></i> +0,8x</div>
+            </div>
+            <div class="dash-kpi">
+              <div class="dash-kpi-label">Ticket médio</div>
+              <div class="dash-kpi-value" data-kpi="4380" data-prefix="R$ " data-decimals="0">R$ 0</div>
+              <div class="dash-kpi-delta up"><i class="fa-solid fa-arrow-up"></i> +18%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="section-number" style="top:40px">05 / 06</div>
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item">
@@ -894,6 +703,7 @@
   </div>
 </section>
 
+<!-- TESTIMONIAL -->
 <section class="testimonial">
   <div class="container">
     <div class="reveal">
@@ -911,17 +721,18 @@
   </div>
 </section>
 
+<!-- CTA -->
 <section class="section" id="contato">
-  <div class="section-number">05 / 05</div>
+  <div class="section-number">06 / 06</div>
   <div class="container">
     <div class="cta-block reveal">
       <h2>Vamos conversar<br>sobre o seu negócio?</h2>
       <p>Receba um diagnóstico gratuito do seu marketing atual. Sem compromisso, sem enrolação — só estratégia direta ao ponto.</p>
       <div class="btns">
-        <a href="https://wa.me/5511958053699?text=Olá,%20quero%20um%20diagnóstico%20gratuito%20do%20meu%20marketing." class="btn btn-wpp" target="_blank" rel="noopener">
+        <a href="https://wa.me/5511999999999?text=Olá,%20quero%20um%20diagnóstico%20gratuito." class="btn btn-wpp" target="_blank" rel="noopener" data-magnetic>
           <i class="fa-brands fa-whatsapp"></i> Diagnóstico gratuito
         </a>
-        <a href="mailto:contato@dfpublicidade.com.br" class="btn btn-ghost">
+        <a href="mailto:contato@dfpublicidade.com.br" class="btn btn-ghost" data-magnetic>
           <i class="fa-solid fa-envelope"></i> contato@dfpublicidade.com.br
         </a>
       </div>
@@ -929,12 +740,13 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="logo.png" alt="DF Soluções">
-        <p>Agência de marketing digital especializada em odontologia e imobiliárias. Transformamos presença digital em faturamento real.</p>
+        <p>Agência de marketing digital especializada em odontologia e imobiliárias.</p>
       </div>
       <div class="footer-col">
         <h4>Especialidades</h4>
@@ -945,8 +757,8 @@
         <h4>Serviços</h4>
         <a href="#servicos">Tráfego pago</a>
         <a href="#servicos">Redes sociais</a>
-        <a href="#servicos">CRM & funil</a>
         <a href="#servicos">Landing pages</a>
+        <a href="#servicos">CRM & funil</a>
       </div>
       <div class="footer-col">
         <h4>Contato</h4>
@@ -966,45 +778,9 @@
   </div>
 </footer>
 
-<script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
-
-const burger = document.getElementById('navBurger');
-const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-reveals.forEach(el => obs.observe(el));
-
-const stats = document.querySelectorAll('[data-count]');
-let statsDone = false;
-const statObs = new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting && !statsDone) {
-    statsDone = true;
-    stats.forEach(el => {
-      const target = parseFloat(el.dataset.count);
-      const suffix = el.dataset.suffix || '';
-      const decimals = parseInt(el.dataset.decimals || '0');
-      let curr = 0;
-      const dur = 1800, start = performance.now();
-      function tick(t) {
-        const p = Math.min((t - start) / dur, 1);
-        curr = target * (1 - Math.pow(1 - p, 3));
-        el.textContent = curr.toFixed(decimals) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    });
-  }
-}, { threshold: 0.4 });
-const statsSec = document.querySelector('.stats');
-if (statsSec) statObs.observe(statsSec);
-</script>
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="effects.js"></script>
 
 </body>
 </html>

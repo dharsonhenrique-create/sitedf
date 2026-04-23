@@ -5,20 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Marketing Digital para Imobiliárias e Corretores | DF Soluções</title>
-<meta name="description" content="Agência especializada em marketing imobiliário. Captamos compradores e locatários qualificados para imobiliárias, corretores autônomos e lançamentos. Tráfego pago, Meta Ads e Google Ads.">
-<meta name="keywords" content="marketing para imobiliária, marketing imobiliário, tráfego pago imóveis, agência imobiliária, marketing para corretor, Meta Ads imóveis, Google Ads imobiliária, lançamento imobiliário marketing, captação de leads imobiliários">
+<meta name="description" content="Agência especializada em marketing imobiliário. Captamos compradores e locatários qualificados para imobiliárias, corretores autônomos e lançamentos. Meta Ads, Google Ads e landing pages.">
+<meta name="keywords" content="marketing para imobiliária, marketing imobiliário, tráfego pago imóveis, agência imobiliária, marketing corretor, Meta Ads imóveis, Google Ads imobiliária, lançamento imobiliário, captação leads imobiliários">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.dfpublicidade.com.br/imobiliaria.html">
 
 <meta property="og:type" content="website">
-<meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://www.dfpublicidade.com.br/imobiliaria.html">
 <meta property="og:title" content="Marketing Digital para Imobiliárias | DF Soluções">
 <meta property="og:description" content="Captamos compradores e locatários qualificados para o seu negócio imobiliário.">
 <meta property="og:image" content="https://www.dfpublicidade.com.br/logo.png">
 
 <link rel="icon" type="image/png" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
 
 <script type="application/ld+json">
 {
@@ -26,17 +24,9 @@
   "@type": "Service",
   "serviceType": "Marketing Digital Imobiliário",
   "name": "Marketing Digital para Imobiliárias e Corretores",
-  "description": "Serviços especializados de marketing digital para imobiliárias, corretores autônomos e construtoras: tráfego pago, gestão de redes sociais, landing pages para lançamentos, captação e qualificação de leads.",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "DF Soluções",
-    "url": "https://www.dfpublicidade.com.br"
-  },
+  "description": "Serviços especializados de marketing digital para imobiliárias, corretores autônomos e construtoras.",
+  "provider": {"@type": "LocalBusiness", "name": "DF Soluções", "url": "https://www.dfpublicidade.com.br"},
   "areaServed": "Brasil",
-  "audience": {
-    "@type": "BusinessAudience",
-    "audienceType": "Imobiliárias, Corretores de Imóveis e Construtoras"
-  },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Planos DF Soluções Imobiliária",
@@ -58,7 +48,6 @@
 
 <style>
 /* ===== IMOBILIARIA PAGE ===== */
-
 .hero-niche {
   position: relative;
   padding: 180px 0 100px;
@@ -66,7 +55,6 @@
   display: flex;
   align-items: center;
 }
-.hero-niche-inner { width: 100%; }
 .hero-niche-tag {
   display: inline-flex;
   align-items: center;
@@ -75,7 +63,6 @@
   background: rgba(139, 92, 246, 0.1);
   border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 100px;
-  font-family: var(--f-body);
   font-size: 12px;
   font-weight: 500;
   color: var(--lilac);
@@ -83,11 +70,7 @@
   text-transform: uppercase;
   margin-bottom: 32px;
 }
-.hero-niche-tag .emoji { font-size: 16px; }
-.hero-niche h1 {
-  margin-bottom: 32px;
-  max-width: 1100px;
-}
+.hero-niche h1 { margin-bottom: 32px; max-width: 1100px; }
 .hero-niche-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -101,27 +84,18 @@
   line-height: 1.7;
   margin-bottom: 40px;
 }
-.hero-niche-ctas {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.hero-niche-side {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+.hero-niche-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-niche-side { display: flex; flex-direction: column; gap: 20px; }
 .hero-kpi {
   background: rgba(26, 26, 46, 0.5);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
   transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
 }
-.hero-kpi:hover {
-  border-color: var(--border-strong);
-  transform: translateX(-6px);
-}
+.hero-kpi:hover { border-color: var(--border-strong); }
 .hero-kpi-num {
   font-family: var(--f-display);
   font-weight: 800;
@@ -133,13 +107,91 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
 }
-.hero-kpi-label {
-  font-size: 13px;
-  color: var(--muted);
-}
+.hero-kpi-label { font-size: 13px; color: var(--muted); position: relative; z-index: 1; }
 
-/* SEGMENTS (who we serve) - 3 cards */
+/* MINI DASHBOARD IMOB */
+.imob-dash {
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.8), rgba(15, 5, 32, 0.95));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  margin-top: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.imob-dash::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--roxo), var(--magenta), transparent);
+}
+.imob-dash-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+  flex-wrap: wrap; gap: 12px;
+}
+.imob-dash-title {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--white);
+  display: flex; align-items: center; gap: 10px;
+}
+.imob-dash-title i { color: var(--lav); }
+.imob-dash-live {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--lav); font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.imob-dash-live::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--magenta); box-shadow: 0 0 8px var(--magenta);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.imob-dash-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.imob-dash-item {
+  background: rgba(10, 4, 21, 0.6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: all 0.3s var(--ease);
+}
+.imob-dash-item:hover {
+  border-color: var(--border-strong);
+  background: rgba(139, 92, 246, 0.06);
+}
+.imob-dash-label {
+  font-size: 11px; color: var(--muted);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.imob-dash-value {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.imob-dash-delta {
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.imob-dash-delta.up { color: #4ADE80; }
+.imob-dash-delta.down { color: #F87171; }
+
+/* SEGMENTS */
 .segments {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -154,25 +206,25 @@
   padding: 44px 36px;
   overflow: hidden;
   transition: all 0.4s var(--ease);
-  min-height: 320px;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transform-style: preserve-3d;
 }
-.segment-card::after {
-  content: '';
+.segment-card .tilt-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(192, 38, 211, 0.1), transparent 60%);
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(192, 38, 211, 0.15), transparent 40%);
   opacity: 0;
   transition: opacity 0.4s var(--ease);
+  pointer-events: none;
 }
+.segment-card:hover .tilt-glow { opacity: 1; }
 .segment-card:hover {
-  transform: translateY(-6px);
   border-color: var(--border-strong);
 }
-.segment-card:hover::after { opacity: 1; }
-.segment-card > * { position: relative; z-index: 1; }
+.segment-card > *:not(.tilt-glow) { position: relative; z-index: 1; }
 .segment-num {
   font-family: var(--f-display);
   font-weight: 900;
@@ -187,11 +239,8 @@
   width: 52px; height: 52px;
   border-radius: 14px;
   background: var(--grd2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: var(--white);
   margin-bottom: 20px;
   box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
 }
@@ -209,26 +258,19 @@
   line-height: 1.7;
   margin-bottom: 24px;
 }
-.segment-bullets {
-  list-style: none;
-}
+.segment-bullets { list-style: none; }
 .segment-bullets li {
   font-size: 13px;
   color: var(--text);
   padding: 6px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; align-items: center; gap: 10px;
 }
 .segment-bullets li::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--magenta);
-  flex-shrink: 0;
+  content: ''; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--magenta);
 }
 
-/* CHALLENGES (3 cards grid like odonto) */
+/* CHALLENGES */
 .challenges {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -236,16 +278,24 @@
   margin-top: 40px;
 }
 .challenge-card {
+  position: relative;
   padding: 36px 32px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   transition: all 0.4s var(--ease);
+  overflow: hidden;
+  transform-style: preserve-3d;
 }
-.challenge-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-strong);
+.challenge-card .tilt-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(139, 92, 246, 0.1), transparent 40%);
+  opacity: 0; transition: opacity 0.4s var(--ease);
+  pointer-events: none;
 }
+.challenge-card:hover .tilt-glow { opacity: 1; }
+.challenge-card:hover { border-color: var(--border-strong); }
+.challenge-card > *:not(.tilt-glow) { position: relative; z-index: 1; }
 .challenge-num {
   font-family: var(--f-display);
   font-weight: 900;
@@ -270,73 +320,21 @@
   line-height: 1.7;
 }
 
-/* STRATEGIES - 2x2 grid */
-.strategies {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 40px;
-}
-.strategy-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  transition: all 0.4s var(--ease);
-  position: relative;
-  overflow: hidden;
-}
-.strategy-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-strong);
-  background: rgba(26, 26, 46, 0.75);
-}
-.strategy-head {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-.strategy-icon {
-  width: 48px; height: 48px;
-  border-radius: 14px;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.25);
-  display: flex;
+/* STRATEGY TIMELINE (uses shared .timeline, .tl-item etc) */
+.tl-strategy-icon {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   color: var(--lav);
-  flex-shrink: 0;
-}
-.strategy-title {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 22px;
-  color: var(--white);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-.strategy-desc {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-.strategy-tag {
-  display: inline-block;
-  padding: 6px 12px;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--lilac);
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: 100px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 16px;
 }
 
-/* PRICING (same as odonto) */
+/* PRICING */
 .pricing {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -352,12 +350,18 @@
   display: flex;
   flex-direction: column;
   transition: all 0.4s var(--ease);
+  overflow: hidden;
+  transform-style: preserve-3d;
 }
-.plan:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-strong);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+.plan .tilt-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(139, 92, 246, 0.15), transparent 40%);
+  opacity: 0; transition: opacity 0.4s var(--ease);
+  pointer-events: none;
 }
+.plan:hover .tilt-glow { opacity: 1; }
+.plan:hover { border-color: var(--border-strong); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
+.plan > *:not(.tilt-glow) { position: relative; z-index: 1; }
 .plan.featured {
   border-color: rgba(139, 92, 246, 0.4);
   background: linear-gradient(180deg, rgba(26, 26, 46, 0.9), rgba(15, 5, 32, 0.95));
@@ -374,12 +378,12 @@
   padding: 6px 16px;
   background: var(--grd2);
   color: var(--white);
-  font-family: var(--f-body);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.05em;
   border-radius: 100px;
   white-space: nowrap;
+  z-index: 2;
 }
 .plan.premium .plan-ribbon {
   background: linear-gradient(90deg, var(--magenta), var(--lav));
@@ -401,19 +405,9 @@
   color: var(--white);
   margin-bottom: 12px;
 }
-.plan-price .currency {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--muted);
-  vertical-align: top;
-  margin-right: 4px;
-}
+.plan-price .currency { font-size: 16px; font-weight: 600; color: var(--muted); vertical-align: top; margin-right: 4px; }
 .plan-price .amount { font-size: 44px; }
-.plan-price .period {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--muted);
-}
+.plan-price .period { font-size: 14px; font-weight: 500; color: var(--muted); }
 .plan.premium .plan-price .amount {
   background: linear-gradient(90deg, var(--magenta), var(--lav));
   -webkit-background-clip: text;
@@ -427,15 +421,9 @@
   margin-bottom: 24px;
   min-height: 50px;
 }
-.plan-features {
-  list-style: none;
-  flex: 1;
-  margin-bottom: 24px;
-}
+.plan-features { list-style: none; flex: 1; margin-bottom: 24px; }
 .plan-features li {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
+  display: flex; gap: 10px; align-items: flex-start;
   padding: 8px 0;
   font-size: 14px;
   color: var(--text);
@@ -443,56 +431,36 @@
   border-bottom: 1px solid rgba(139, 92, 246, 0.06);
 }
 .plan-features li:last-child { border-bottom: none; }
-.plan-features li i {
-  color: var(--roxo);
-  font-size: 13px;
-  margin-top: 4px;
-  flex-shrink: 0;
-}
+.plan-features li i { color: var(--roxo); font-size: 13px; margin-top: 4px; flex-shrink: 0; }
 .plan.premium .plan-features li i { color: var(--magenta); }
-.plan-features li.off {
-  opacity: 0.3;
-  text-decoration: line-through;
-}
+.plan-features li.off { opacity: 0.3; text-decoration: line-through; }
 .plan-cta {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  text-align: center;
+  display: block; width: 100%;
+  padding: 14px; text-align: center;
   border-radius: 100px;
-  font-family: var(--f-body);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
   transition: all 0.3s var(--ease);
-  border: none;
-  cursor: pointer;
 }
 .plan-cta.outline {
   border: 1px solid rgba(139, 92, 246, 0.4);
   color: var(--white);
   background: transparent;
 }
-.plan-cta.outline:hover {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: var(--roxo);
-}
+.plan-cta.outline:hover { background: rgba(139, 92, 246, 0.1); border-color: var(--roxo); }
 .plan-cta.solid {
   background: var(--grd2);
   color: var(--white);
   box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+  border: none;
 }
-.plan-cta.solid:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.5);
-}
+.plan-cta.solid:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(139, 92, 246, 0.5); }
 .plan.premium .plan-cta.solid {
   background: linear-gradient(90deg, var(--magenta), var(--lav));
   box-shadow: 0 8px 24px rgba(192, 38, 211, 0.3);
 }
-.plan.premium .plan-cta.solid:hover {
-  box-shadow: 0 12px 32px rgba(192, 38, 211, 0.5);
-}
+.plan.premium .plan-cta.solid:hover { box-shadow: 0 12px 32px rgba(192, 38, 211, 0.5); }
 
 /* ROI CALC */
 .calc {
@@ -505,9 +473,7 @@
   overflow: hidden;
 }
 .calc::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--roxo), var(--magenta), transparent);
 }
@@ -517,11 +483,7 @@
   gap: 60px;
   align-items: center;
 }
-.calc-label {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
+.calc-label { font-size: 14px; color: var(--muted); margin-bottom: 12px; }
 .calc-value {
   font-family: var(--f-display);
   font-weight: 900;
@@ -553,11 +515,7 @@
   border: 3px solid var(--white);
   box-shadow: 0 4px 16px rgba(139, 92, 246, 0.5);
 }
-.calc-note {
-  margin-top: 16px;
-  font-size: 13px;
-  color: var(--muted);
-}
+.calc-note { margin-top: 16px; font-size: 13px; color: var(--muted); }
 .calc-result {
   background: rgba(10, 4, 21, 0.6);
   border: 1px solid var(--border);
@@ -565,20 +523,13 @@
   padding: 28px;
 }
 .calc-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  display: flex; justify-content: space-between; align-items: baseline;
   padding: 14px 0;
   border-bottom: 1px solid var(--border);
   font-size: 14px;
 }
 .calc-row:last-child { border-bottom: none; }
-.calc-row .val {
-  font-family: var(--f-display);
-  font-weight: 700;
-  color: var(--white);
-  font-size: 18px;
-}
+.calc-row .val { font-family: var(--f-display); font-weight: 700; color: var(--white); font-size: 18px; }
 .calc-row.hi .val {
   background: var(--grd2);
   -webkit-background-clip: text;
@@ -596,9 +547,7 @@
   padding: 24px 0;
   background: transparent;
   border: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   cursor: pointer;
   font-family: var(--f-display);
   font-weight: 600;
@@ -609,11 +558,7 @@
   transition: color 0.3s var(--ease);
 }
 .faq-q:hover { color: var(--lav); }
-.faq-q i {
-  transition: transform 0.3s var(--ease);
-  color: var(--roxo);
-  font-size: 14px;
-}
+.faq-q i { transition: transform 0.3s var(--ease); color: var(--roxo); font-size: 14px; }
 .faq-a {
   display: none;
   padding: 0 0 24px;
@@ -636,22 +581,13 @@
   text-align: center;
 }
 .cta-block::before, .cta-block::after {
-  content: '';
-  position: absolute;
+  content: ''; position: absolute;
   width: 400px; height: 400px;
   border-radius: 50%;
   filter: blur(80px);
 }
-.cta-block::before {
-  background: var(--roxo);
-  top: -100px; left: -100px;
-  opacity: 0.2;
-}
-.cta-block::after {
-  background: var(--magenta);
-  bottom: -100px; right: -100px;
-  opacity: 0.2;
-}
+.cta-block::before { background: var(--roxo); top: -100px; left: -100px; opacity: 0.2; }
+.cta-block::after { background: var(--magenta); bottom: -100px; right: -100px; opacity: 0.2; }
 .cta-block > * { position: relative; z-index: 1; }
 .cta-block h2 {
   font-family: var(--f-display);
@@ -663,27 +599,20 @@
   margin-bottom: 24px;
 }
 .cta-block p {
-  font-size: 17px;
-  color: var(--muted);
-  max-width: 560px;
-  margin: 0 auto 40px;
+  font-size: 17px; color: var(--muted);
+  max-width: 560px; margin: 0 auto 40px;
   line-height: 1.7;
 }
-.cta-block .btns {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+.cta-block .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 @media (max-width: 1050px) {
   .hero-niche-grid { grid-template-columns: 1fr; gap: 50px; }
   .segments { grid-template-columns: 1fr; }
   .challenges { grid-template-columns: 1fr; }
-  .strategies { grid-template-columns: 1fr; }
   .pricing { grid-template-columns: 1fr 1fr; gap: 16px; }
   .calc { padding: 36px 28px; }
   .calc-grid { grid-template-columns: 1fr; gap: 40px; }
+  .imob-dash-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 700px) {
   .hero-niche { padding: 140px 0 60px; }
@@ -695,6 +624,14 @@
 </head>
 <body>
 
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- 3D BG -->
+<canvas id="bg3d"></canvas>
+
+<!-- ATMOSPHERE FALLBACK -->
 <div class="atmosphere">
   <div class="dotgrid"></div>
   <div class="orb orb-1"></div>
@@ -702,17 +639,14 @@
   <div class="orb orb-3"></div>
 </div>
 
-<a href="https://wa.me/5511999999999?text=Olá,%20tenho%20uma%20imobiliária%20e%20quero%20saber%20mais%20sobre%20os%20serviços." class="float-wpp" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a href="https://wa.me/5511999999999?text=Olá,%20tenho%20uma%20imobiliária." class="float-wpp" target="_blank" rel="noopener" aria-label="WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<nav class="nav" id="nav" aria-label="Navegação principal">
+<nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="Logo DF Soluções">
-    <div class="nav-logo-text">
-      DF Soluções
-      <span>Marketing Digital</span>
-    </div>
+    <img src="logo.png" alt="DF Soluções">
+    <div class="nav-logo-text">DF Soluções<span>Marketing Digital</span></div>
   </a>
   <div class="nav-links" id="navLinks">
     <a href="index.html" class="nav-link">Início</a>
@@ -720,25 +654,20 @@
     <a href="imobiliaria.html" class="nav-link active">Imobiliária</a>
     <a href="#planos" class="nav-link">Planos</a>
   </div>
-  <a href="https://wa.me/5511999999999?text=Olá,%20tenho%20uma%20imobiliária%20e%20quero%20conversar." class="nav-cta" target="_blank" rel="noopener">
+  <a href="https://wa.me/5511999999999?text=Olá,%20tenho%20uma%20imobiliária." class="nav-cta" target="_blank" rel="noopener" data-magnetic>
     <i class="fa-brands fa-whatsapp"></i> Falar agora
   </a>
-  <button class="nav-burger" id="navBurger" aria-label="Menu">
-    <i class="fa-solid fa-bars"></i>
-  </button>
+  <button class="nav-burger" id="navBurger"><i class="fa-solid fa-bars"></i></button>
 </nav>
 
 <!-- HERO -->
 <header class="hero-niche">
-  <div class="container hero-niche-inner">
-    <div class="hero-niche-tag">
-      <span class="emoji">🏢</span>
-      Especialidade · Imobiliária
-    </div>
+  <div class="container">
+    <div class="hero-niche-tag">🏢 Especialidade · Imobiliária</div>
     <h1 class="display display-lg">
       Chega de depender<br>
-      só do <span class="gradient-text">ZAP e do VivaReal</span>.<br>
-      <span class="outline-text">Crie seu próprio fluxo.</span>
+      só do <span class="gradient-text">ZAP e VivaReal</span>.<br>
+      <span class="outline-text">Tenha seu fluxo próprio.</span>
     </h1>
     <div class="hero-niche-grid">
       <div>
@@ -746,57 +675,60 @@
           Captamos <strong style="color:var(--white)">compradores</strong> e <strong style="color:var(--white)">locatários qualificados</strong> com campanhas próprias no Meta, Google e Instagram. Da imobiliária de bairro ao lançamento de alto padrão — construímos a autoridade digital da sua marca.
         </p>
         <div class="hero-niche-ctas">
-          <a href="https://wa.me/5511999999999?text=Olá,%20quero%20captar%20leads%20qualificados%20para%20minha%20imobiliária." class="btn btn-primary" target="_blank" rel="noopener">
+          <a href="https://wa.me/5511999999999?text=Olá,%20quero%20captar%20leads%20qualificados%20para%20minha%20imobiliária." class="btn btn-primary" target="_blank" rel="noopener" data-magnetic>
             <i class="fa-brands fa-whatsapp"></i> Diagnóstico gratuito
           </a>
-          <a href="#planos" class="btn btn-ghost">
+          <a href="#planos" class="btn btn-ghost" data-magnetic>
             Ver planos <i class="fa-solid fa-arrow-down"></i>
           </a>
         </div>
       </div>
       <div class="hero-niche-side">
-        <div class="hero-kpi">
+        <div class="hero-kpi" data-tilt>
+          <div class="tilt-glow"></div>
           <div class="hero-kpi-num">+5x</div>
           <div class="hero-kpi-label">Mais leads qualificados em 90 dias</div>
         </div>
-        <div class="hero-kpi">
+        <div class="hero-kpi" data-tilt>
+          <div class="tilt-glow"></div>
           <div class="hero-kpi-num">-50%</div>
           <div class="hero-kpi-label">Dependência de portais pagos</div>
         </div>
-        <div class="hero-kpi">
+        <div class="hero-kpi" data-tilt>
+          <div class="tilt-glow"></div>
           <div class="hero-kpi-num">R$0</div>
-          <div class="hero-kpi-label">De multa em caso de cancelamento</div>
+          <div class="hero-kpi-label">Sem multa de cancelamento</div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
+<!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <div class="marquee-item"><span>LANÇAMENTOS</span> <span class="dot"></span> <span class="outline-text">ALTO PADRÃO</span> <span class="dot"></span> <span>LOCAÇÃO</span> <span class="dot"></span> <span class="outline-text">COMPRA E VENDA</span> <span class="dot"></span> <span>CORRETORES</span> <span class="dot"></span></div>
-    <div class="marquee-item"><span>LANÇAMENTOS</span> <span class="dot"></span> <span class="outline-text">ALTO PADRÃO</span> <span class="dot"></span> <span>LOCAÇÃO</span> <span class="dot"></span> <span class="outline-text">COMPRA E VENDA</span> <span class="dot"></span> <span>CORRETORES</span> <span class="dot"></span></div>
+    <div class="marquee-item"><span>LANÇAMENTOS</span> <span class="dot"></span> <span class="outline-text">ALTO PADRÃO</span> <span class="dot"></span> <span>LOCAÇÃO</span> <span class="dot"></span> <span class="outline-text">VENDAS</span> <span class="dot"></span> <span>CORRETORES</span> <span class="dot"></span></div>
+    <div class="marquee-item"><span>LANÇAMENTOS</span> <span class="dot"></span> <span class="outline-text">ALTO PADRÃO</span> <span class="dot"></span> <span>LOCAÇÃO</span> <span class="dot"></span> <span class="outline-text">VENDAS</span> <span class="dot"></span> <span>CORRETORES</span> <span class="dot"></span></div>
   </div>
 </div>
 
-<!-- SEGMENTS - Who we serve -->
+<!-- SEGMENTS -->
 <section class="section">
-  <div class="section-number">01 / 06</div>
+  <div class="section-number">01 / 07</div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow">Para quem trabalhamos</div>
-      <h2 class="display display-md">
-        Três perfis,<br>uma mesma obsessão:<br>lead qualificado.
-      </h2>
+      <h2 class="display display-md">Três perfis,<br>uma mesma obsessão:<br>lead qualificado.</h2>
       <p>Cada perfil do mercado imobiliário tem uma dor diferente. Por isso adaptamos a estratégia para gerar o tipo certo de lead no tempo certo.</p>
     </div>
 
     <div class="segments">
-      <article class="segment-card reveal">
+      <article class="segment-card reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <span class="segment-num">01</span>
         <div class="segment-icon"><i class="fa-solid fa-building"></i></div>
         <h3 class="segment-title">Imobiliárias</h3>
-        <p class="segment-desc">Construímos presença digital forte para sua marca e geramos leads que não dependem só do ZAP e do VivaReal.</p>
+        <p class="segment-desc">Presença digital forte para sua marca e leads que não dependem só do ZAP e VivaReal.</p>
         <ul class="segment-bullets">
           <li>Captação de venda e locação</li>
           <li>Gestão de corretores via CRM</li>
@@ -804,137 +736,199 @@
         </ul>
       </article>
 
-      <article class="segment-card reveal reveal-delay-1">
+      <article class="segment-card reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <span class="segment-num">02</span>
         <div class="segment-icon"><i class="fa-solid fa-user-tie"></i></div>
         <h3 class="segment-title">Corretores autônomos</h3>
-        <p class="segment-desc">Posicionamento pessoal e captação direta. Você deixa de ser só mais um CRECI e vira referência no seu nicho.</p>
+        <p class="segment-desc">Posicionamento pessoal e captação direta. Você deixa de ser só mais um CRECI e vira referência.</p>
         <ul class="segment-bullets">
           <li>Marca pessoal forte</li>
           <li>Leads exclusivos seus</li>
-          <li>Autoridade local ou de segmento</li>
+          <li>Autoridade local de segmento</li>
         </ul>
       </article>
 
-      <article class="segment-card reveal reveal-delay-2">
+      <article class="segment-card reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <span class="segment-num">03</span>
         <div class="segment-icon"><i class="fa-solid fa-layer-group"></i></div>
         <h3 class="segment-title">Construtoras e lançamentos</h3>
-        <p class="segment-desc">Campanhas de pré-lançamento e lançamento para encher tabela, do VGV baixo ao alto padrão. Landing page + tráfego + corretor.</p>
+        <p class="segment-desc">Campanhas de pré-lançamento e lançamento para encher tabela, do VGV baixo ao alto padrão.</p>
         <ul class="segment-bullets">
-          <li>Landing page exclusiva do empreendimento</li>
+          <li>Landing page do empreendimento</li>
           <li>Meta Ads + Google Ads integrados</li>
-          <li>Distribuição para equipe comercial</li>
+          <li>Distribuição p/ equipe comercial</li>
         </ul>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- MINI DASHBOARD -->
+<section class="section">
+  <div class="section-number">02 / 07</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Resultado real</div>
+      <h2 class="display display-md">Números que<br>imobiliárias colhem<br>em 90 dias conosco.</h2>
+      <p>Dados consolidados de carteira de clientes do nicho imobiliário, comparando antes e depois da parceria com a DF Soluções.</p>
+    </div>
+
+    <div class="imob-dash reveal" data-tilt>
+      <div class="tilt-glow"></div>
+      <div class="imob-dash-head">
+        <div class="imob-dash-title">
+          <i class="fa-solid fa-chart-pie"></i> Painel de performance · Média de clientes imobiliários
+        </div>
+        <div class="imob-dash-live">Monitoramento contínuo</div>
+      </div>
+      <div class="imob-dash-grid">
+        <div class="imob-dash-item">
+          <div class="imob-dash-label">Leads qualificados / mês</div>
+          <div class="imob-dash-value" data-kpi="180" data-decimals="0">0</div>
+          <div class="imob-dash-delta up"><i class="fa-solid fa-arrow-up"></i> +412% vs início</div>
+        </div>
+        <div class="imob-dash-item">
+          <div class="imob-dash-label">Custo por lead</div>
+          <div class="imob-dash-value" data-kpi="14.80" data-prefix="R$ " data-decimals="2">R$ 0</div>
+          <div class="imob-dash-delta down"><i class="fa-solid fa-arrow-down"></i> -38% em 3 meses</div>
+        </div>
+        <div class="imob-dash-item">
+          <div class="imob-dash-label">Taxa de visita agendada</div>
+          <div class="imob-dash-value" data-kpi="22" data-suffix="%" data-decimals="0">0%</div>
+          <div class="imob-dash-delta up"><i class="fa-solid fa-arrow-up"></i> +9pp vs portais</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CHALLENGES -->
 <section class="section">
-  <div class="section-number">02 / 06</div>
+  <div class="section-number">03 / 07</div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow">Os desafios</div>
-      <h2 class="display display-md">
-        Sua imobiliária vive<br>algum destes cenários?
-      </h2>
+      <h2 class="display display-md">Sua imobiliária vive<br>algum destes cenários?</h2>
       <p>Os três maiores problemas que resolvemos todo dia em imobiliárias e carteiras de corretores.</p>
     </div>
 
     <div class="challenges">
-      <div class="challenge-card reveal">
+      <div class="challenge-card reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <span class="challenge-num">01</span>
         <h3 class="challenge-title">Leads de baixa qualidade</h3>
-        <p class="challenge-desc">Muito contato de curioso, pouco de quem realmente quer comprar ou alugar. Os corretores desmotivam, deixam de atender e o time perde tempo com quem nunca vai fechar.</p>
+        <p class="challenge-desc">Muito curioso, pouca gente séria. Os corretores desmotivam, deixam de atender, e o time perde tempo com quem nunca vai fechar.</p>
       </div>
-      <div class="challenge-card reveal reveal-delay-1">
+      <div class="challenge-card reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <span class="challenge-num">02</span>
         <h3 class="challenge-title">Dependência dos portais</h3>
-        <p class="challenge-desc">ZAP, VivaReal e OLX mensalizando absurdos — e se um deles aumenta o preço ou você é penalizado, sua captação despenca. Você não tem controle do seu próprio funil.</p>
+        <p class="challenge-desc">ZAP, VivaReal e OLX cobrando caro. Se um deles aumenta o preço ou te penaliza, sua captação despenca. Você não tem controle do funil.</p>
       </div>
-      <div class="challenge-card reveal reveal-delay-2">
+      <div class="challenge-card reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <span class="challenge-num">03</span>
         <h3 class="challenge-title">Concorrência invisível</h3>
-        <p class="challenge-desc">Imobiliária nova aparece toda semana, corretor autônomo investindo em Instagram, franquia grande dominando anúncios. Sem estratégia digital, sua marca some do mapa.</p>
+        <p class="challenge-desc">Imobiliária nova toda semana, corretor autônomo bombando no Instagram, franquia grande dominando anúncios. Sem estratégia digital, sua marca some.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STRATEGIES -->
+<!-- STRATEGIES TIMELINE -->
 <section class="section">
-  <div class="section-number">03 / 06</div>
+  <div class="section-number">04 / 07</div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow">O que entregamos</div>
-      <h2 class="display display-md">
-        Estratégias testadas<br>no mercado imobiliário.
-      </h2>
+      <h2 class="display display-md">Estratégias testadas<br>no mercado imobiliário.</h2>
       <p>Não é só impulsionar post no Instagram. É uma engrenagem completa de captação, qualificação e acompanhamento até o fechamento.</p>
     </div>
 
-    <div class="strategies">
-      <article class="strategy-card reveal">
-        <div class="strategy-head">
-          <div class="strategy-icon"><i class="fa-brands fa-meta"></i></div>
-          <h3 class="strategy-title">Meta Lead Ads</h3>
-        </div>
-        <p class="strategy-desc">Campanhas no Facebook e Instagram com formulários que qualificam o lead antes mesmo de chegar no corretor. Perguntas sobre renda, região e prazo de compra filtram curiosos e entregam quem realmente está no mercado.</p>
-        <span class="strategy-tag">Captação ativa</span>
-      </article>
+    <div class="timeline">
+      <div class="tl-track"><div class="tl-progress"></div></div>
 
-      <article class="strategy-card reveal reveal-delay-1">
-        <div class="strategy-head">
-          <div class="strategy-icon"><i class="fa-brands fa-google"></i></div>
-          <h3 class="strategy-title">Google Ads imobiliário</h3>
+      <div class="tl-item">
+        <div class="tl-strategy-icon"><i class="fa-brands fa-meta"></i></div>
+        <span class="tl-number">01</span>
+        <h3 class="tl-title">Meta Lead Ads</h3>
+        <p class="tl-desc">Campanhas no Facebook e Instagram com formulários que qualificam o lead antes mesmo de chegar no corretor. Perguntas sobre renda, região e prazo de compra filtram curiosos e entregam quem realmente está no mercado.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Captação ativa</span>
+          <span class="tl-tag">Alta escala</span>
+          <span class="tl-tag">Locação e venda</span>
         </div>
-        <p class="strategy-desc">Apareça quando alguém pesquisa "apartamento em [bairro]" ou "imobiliária em [cidade]". Leads em estágio avançado de decisão que já estão prontos para orçar e visitar imóveis.</p>
-        <span class="strategy-tag">Alta intenção</span>
-      </article>
+      </div>
 
-      <article class="strategy-card reveal reveal-delay-2">
-        <div class="strategy-head">
-          <div class="strategy-icon"><i class="fa-solid fa-rocket"></i></div>
-          <h3 class="strategy-title">Landing page de lançamento</h3>
+      <div class="tl-item">
+        <div class="tl-strategy-icon"><i class="fa-brands fa-google"></i></div>
+        <span class="tl-number">02</span>
+        <h3 class="tl-title">Google Ads imobiliário</h3>
+        <p class="tl-desc">Apareça quando alguém pesquisa "apartamento em [bairro]" ou "imobiliária em [cidade]". Leads em estágio avançado de decisão, prontos para orçar e visitar imóveis em poucos dias.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Alta intenção</span>
+          <span class="tl-tag">Busca local</span>
+          <span class="tl-tag">Retargeting</span>
         </div>
-        <p class="strategy-desc">Página exclusiva do empreendimento com plantas, tour virtual, localização e formulário de interesse. Desenvolvida para converter o clique em reunião com corretor em poucos minutos.</p>
-        <span class="strategy-tag">Lançamentos</span>
-      </article>
+      </div>
 
-      <article class="strategy-card reveal reveal-delay-3">
-        <div class="strategy-head">
-          <div class="strategy-icon"><i class="fa-brands fa-instagram"></i></div>
-          <h3 class="strategy-title">Instagram de autoridade</h3>
+      <div class="tl-item">
+        <div class="tl-strategy-icon"><i class="fa-solid fa-rocket"></i></div>
+        <span class="tl-number">03</span>
+        <h3 class="tl-title">Landing page de lançamento</h3>
+        <p class="tl-desc">Página exclusiva do empreendimento com plantas, tour virtual, localização e formulário de interesse integrado. Desenvolvida para converter o clique em reunião com corretor em poucos minutos.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Lançamentos</span>
+          <span class="tl-tag">Alta conversão</span>
+          <span class="tl-tag">Integração CRM</span>
         </div>
-        <p class="strategy-desc">Conteúdo estratégico que mostra imóveis, ensina sobre o mercado e constrói confiança com seu público local. Reels editados que param o scroll e trazem o seguidor certo para sua DM.</p>
-        <span class="strategy-tag">Marca forte</span>
-      </article>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-strategy-icon"><i class="fa-brands fa-instagram"></i></div>
+        <span class="tl-number">04</span>
+        <h3 class="tl-title">Instagram de autoridade</h3>
+        <p class="tl-desc">Conteúdo estratégico que mostra imóveis, ensina sobre o mercado e constrói confiança com seu público local. Reels editados que param o scroll e trazem o seguidor certo para sua DM.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Marca forte</span>
+          <span class="tl-tag">Conteúdo local</span>
+          <span class="tl-tag">Orgânico + Ads</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-strategy-icon"><i class="fa-solid fa-filter"></i></div>
+        <span class="tl-number">05</span>
+        <h3 class="tl-title">CRM e distribuição de leads</h3>
+        <p class="tl-desc">Kanban visual com todos os leads em um só lugar, distribuídos automaticamente para os corretores. Ninguém fica sem follow-up, nenhum orçamento se perde no WhatsApp da equipe.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Gestão comercial</span>
+          <span class="tl-tag">Zero lead perdido</span>
+          <span class="tl-tag">Relatórios</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="section" id="planos">
-  <div class="section-number">04 / 06</div>
+  <div class="section-number">05 / 07</div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow">Planos</div>
-      <h2 class="display display-md">
-        Escolha o plano<br>para o seu negócio.
-      </h2>
-      <p>Sem fidelidade forçada. Sem multa de cancelamento. Todo plano inclui reuniões de alinhamento e atendimento próximo — o que muda é o nível de investimento e resultado.</p>
+      <h2 class="display display-md">Escolha o plano<br>para o seu negócio.</h2>
+      <p>Sem fidelidade forçada. Sem multa. Todo plano inclui reuniões de alinhamento e atendimento próximo — o que muda é o nível de investimento e resultado.</p>
     </div>
 
     <div class="pricing">
-      <!-- Lite Orgânico -->
-      <div class="plan reveal">
+      <div class="plan reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <div class="plan-name">Lite Orgânico</div>
-        <div class="plan-price">
-          <span class="currency">R$</span><span class="amount">1.200</span><span class="period">/mês</span>
-        </div>
-        <p class="plan-desc">Presença profissional e constante nas redes sociais para construir autoridade no mercado local.</p>
+        <div class="plan-price"><span class="currency">R$</span><span class="amount">1.200</span><span class="period">/mês</span></div>
+        <p class="plan-desc">Presença profissional nas redes sociais para construir autoridade no mercado local.</p>
         <ul class="plan-features">
           <li><i class="fa-solid fa-check"></i> Gestão de Instagram e Facebook</li>
           <li><i class="fa-solid fa-check"></i> Artes profissionais de imóveis</li>
@@ -943,15 +937,13 @@
           <li class="off"><i class="fa-solid fa-xmark"></i> Tráfego pago</li>
           <li class="off"><i class="fa-solid fa-xmark"></i> Mentoria comercial</li>
         </ul>
-        <a href="https://wa.me/5511999999999?text=Quero%20o%20plano%20Lite%20Orgânico%20para%20minha%20imobiliária." class="plan-cta outline" target="_blank" rel="noopener">Selecionar Lite</a>
+        <a href="https://wa.me/5511999999999?text=Quero%20o%20plano%20Lite%20Orgânico%20para%20minha%20imobiliária." class="plan-cta outline" target="_blank" rel="noopener" data-magnetic>Selecionar Lite</a>
       </div>
 
-      <!-- Lite Tráfego Pago -->
-      <div class="plan reveal reveal-delay-1">
+      <div class="plan reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <div class="plan-name">Lite Tráfego Pago</div>
-        <div class="plan-price">
-          <span class="currency">R$</span><span class="amount">1.200</span><span class="period">/mês</span>
-        </div>
+        <div class="plan-price"><span class="currency">R$</span><span class="amount">1.200</span><span class="period">/mês</span></div>
         <p class="plan-desc">Leads chegando todo dia via Meta Ads. Foco em captação ativa de compradores e locatários.</p>
         <ul class="plan-features">
           <li><i class="fa-solid fa-check"></i> Gestão de Meta Lead Ads</li>
@@ -961,34 +953,30 @@
           <li class="off"><i class="fa-solid fa-xmark"></i> Feed orgânico</li>
           <li class="off"><i class="fa-solid fa-xmark"></i> Mentoria comercial</li>
         </ul>
-        <a href="https://wa.me/5511999999999?text=Quero%20o%20plano%20Lite%20Tráfego%20Pago%20para%20minha%20imobiliária." class="plan-cta outline" target="_blank" rel="noopener">Selecionar Ads</a>
+        <a href="https://wa.me/5511999999999?text=Quero%20o%20plano%20Lite%20Tráfego%20Pago%20para%20minha%20imobiliária." class="plan-cta outline" target="_blank" rel="noopener" data-magnetic>Selecionar Ads</a>
       </div>
 
-      <!-- Prata -->
-      <div class="plan featured reveal reveal-delay-2">
+      <div class="plan featured reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <div class="plan-ribbon">★ Mais escolhido</div>
         <div class="plan-name">Prata</div>
-        <div class="plan-price">
-          <span class="currency">R$</span><span class="amount">1.900</span><span class="period">/mês</span>
-        </div>
+        <div class="plan-price"><span class="currency">R$</span><span class="amount">1.900</span><span class="period">/mês</span></div>
         <p class="plan-desc">Orgânico + Tráfego Pago + Mentoria. O combo equilibrado para crescimento consistente.</p>
         <ul class="plan-features">
           <li><i class="fa-solid fa-check"></i> <strong>Tudo do Lite Orgânico</strong></li>
           <li><i class="fa-solid fa-check"></i> Gestão Meta Ads completa</li>
           <li><i class="fa-solid fa-check"></i> Reuniões semanais</li>
           <li><i class="fa-solid fa-check"></i> Atendimento full time</li>
-          <li><i class="fa-solid fa-check"></i> Mentoria comercial para corretores</li>
+          <li><i class="fa-solid fa-check"></i> Mentoria comercial</li>
         </ul>
-        <a href="https://wa.me/5511999999999?text=Quero%20o%20plano%20Prata%20para%20minha%20imobiliária." class="plan-cta solid" target="_blank" rel="noopener">Quero o Prata</a>
+        <a href="https://wa.me/5511999999999?text=Quero%20o%20plano%20Prata%20para%20minha%20imobiliária." class="plan-cta solid" target="_blank" rel="noopener" data-magnetic>Quero o Prata</a>
       </div>
 
-      <!-- Premium -->
-      <div class="plan premium reveal reveal-delay-3">
+      <div class="plan premium reveal" data-tilt>
+        <div class="tilt-glow"></div>
         <div class="plan-ribbon">🏆 Dominância</div>
         <div class="plan-name">Premium</div>
-        <div class="plan-price">
-          <span class="currency">R$</span><span class="amount">2.500</span><span class="period">/mês</span>
-        </div>
+        <div class="plan-price"><span class="currency">R$</span><span class="amount">2.500</span><span class="period">/mês</span></div>
         <p class="plan-desc">Google + Meta + TikTok Ads, landing pages, dashboard em tempo real e demandas ilimitadas.</p>
         <ul class="plan-features">
           <li><i class="fa-solid fa-check"></i> <strong>Tudo do Prata</strong></li>
@@ -997,26 +985,24 @@
           <li><i class="fa-solid fa-infinity"></i> Solicitações ilimitadas</li>
           <li><i class="fa-solid fa-check"></i> Dashboard em tempo real</li>
         </ul>
-        <a href="https://wa.me/5511999999999?text=Quero%20o%20plano%20Premium%20para%20dominar%20meu%20mercado%20imobiliário." class="plan-cta solid" target="_blank" rel="noopener">Dominar mercado</a>
+        <a href="https://wa.me/5511999999999?text=Quero%20o%20plano%20Premium%20para%20dominar%20meu%20mercado%20imobiliário." class="plan-cta solid" target="_blank" rel="noopener" data-magnetic>Dominar mercado</a>
       </div>
     </div>
 
     <p style="text-align:center; margin-top:32px; font-size:14px; color:var(--muted);">
       <i class="fa-solid fa-circle-info" style="color:var(--roxo); margin-right:6px;"></i>
-      Valores referentes à gestão. O investimento em anúncios nas plataformas (Google, Meta, TikTok) é separado e pago diretamente pelo cliente.
+      Valores referentes à gestão. O investimento em anúncios nas plataformas (Google, Meta, TikTok) é pago diretamente pelo cliente.
     </p>
   </div>
 </section>
 
-<!-- ROI CALCULATOR -->
+<!-- ROI CALC -->
 <section class="section" id="roi">
-  <div class="section-number">05 / 06</div>
+  <div class="section-number">06 / 07</div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow">Calculadora</div>
-      <h2 class="display display-md">
-        Quanto você pode<br>faturar com a gente?
-      </h2>
+      <h2 class="display display-md">Quanto você pode<br>faturar com a gente?</h2>
       <p>Arraste a barra e veja quantas vendas ou locações cobrem o investimento e ainda deixam lucro bruto.</p>
     </div>
 
@@ -1025,8 +1011,8 @@
         <div>
           <div class="calc-label">Negócios fechados via DF Soluções no mês</div>
           <div class="calc-value" id="calcNum">1</div>
-          <input type="range" class="calc-slider" id="calcSlider" min="1" max="10" value="1" oninput="updateCalc()" aria-label="Número de negócios">
-          <p class="calc-note">Comissão média considerada: <strong style="color:var(--white)">R$ 8.000</strong> por negócio (venda ou locação média de mercado).</p>
+          <input type="range" class="calc-slider" id="calcSlider" min="1" max="10" value="1" oninput="updateCalcImob()" aria-label="Negócios">
+          <p class="calc-note">Comissão média considerada: <strong style="color:var(--white)">R$ 8.000</strong> por negócio.</p>
         </div>
         <div class="calc-result">
           <div class="calc-row">
@@ -1049,7 +1035,7 @@
 
 <!-- FAQ -->
 <section class="section">
-  <div class="section-number">06 / 06</div>
+  <div class="section-number">07 / 07</div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow">Perguntas frequentes</div>
@@ -1059,39 +1045,24 @@
 
     <div class="faq">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>Em quanto tempo começam a chegar leads?</span>
-          <i class="fa-solid fa-plus"></i>
-        </button>
-        <div class="faq-a">As campanhas sobem em até 7 dias úteis após o briefing. Normalmente os primeiros leads chegam na primeira semana de veiculação, e a performance se consolida a partir do 30º dia com otimizações contínuas baseadas nos dados reais.</div>
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Em quanto tempo começam a chegar leads?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a">Campanhas sobem em até 7 dias úteis após o briefing. Os primeiros leads chegam na primeira semana de veiculação, e a performance se consolida a partir do 30º dia com otimizações contínuas.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>Funciona para corretor autônomo ou só imobiliária grande?</span>
-          <i class="fa-solid fa-plus"></i>
-        </button>
-        <div class="faq-a">Funciona para os dois. Para corretores autônomos, focamos em posicionamento pessoal e captação direta — a estratégia é otimizada para uma pessoa só fechar negócios. Para imobiliárias, estruturamos distribuição de leads entre a equipe comercial.</div>
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Funciona para corretor autônomo ou só imobiliária?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a">Funciona para ambos. Para corretores autônomos, focamos em posicionamento pessoal e captação direta. Para imobiliárias, estruturamos distribuição de leads entre a equipe comercial.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>O investimento em Meta Ads e Google Ads está incluso?</span>
-          <i class="fa-solid fa-plus"></i>
-        </button>
-        <div class="faq-a">Não. Os planos cobrem nossa mão de obra: gestão, criação, estratégia e atendimento. O investimento em anúncios é definido com você e pago diretamente às plataformas. A recomendação mínima para gerar resultado no imobiliário é R$ 1.500 a R$ 3.000/mês em mídia.</div>
+        <button class="faq-q" onclick="toggleFaq(this)"><span>O investimento em Meta Ads e Google Ads está incluso?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a">Não. Os planos cobrem nossa mão de obra. O investimento em anúncios é definido com você e pago diretamente às plataformas. Recomendamos mínimo de R$ 1.500 a R$ 3.000/mês em mídia para gerar resultado no imobiliário.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>Vocês fazem landing page de lançamento?</span>
-          <i class="fa-solid fa-plus"></i>
-        </button>
-        <div class="faq-a">Sim — o plano Premium inclui landing pages para lançamentos com plantas, localização, diferenciais e formulário de interesse integrado ao CRM. Para os demais planos, a landing page é um projeto à parte que orçamos sob demanda.</div>
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Vocês fazem landing page de lançamento?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a">Sim — o plano Premium inclui landing pages para lançamentos com plantas, localização e formulário de interesse integrado ao CRM. Para outros planos, orçamos sob demanda.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>Existe multa ou fidelidade contratual?</span>
-          <i class="fa-solid fa-plus"></i>
-        </button>
-        <div class="faq-a">Não. Sem multa, sem letra miúda. Para cancelar basta avisar com 30 dias de antecedência e você paga apenas o proporcional. Nosso compromisso é manter você pelo resultado que entregamos, não por contrato.</div>
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Existe multa ou fidelidade contratual?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a">Não. Sem multa, sem letra miúda. Para cancelar basta avisar com 30 dias de antecedência e você paga apenas o proporcional. Ficamos pelo resultado, não por contrato.</div>
       </div>
     </div>
   </div>
@@ -1101,13 +1072,13 @@
 <section class="section" id="contato">
   <div class="container">
     <div class="cta-block reveal">
-      <h2>Pronto para parar de<br>depender só dos portais?</h2>
+      <h2>Pronto para parar<br>de depender só<br>dos portais?</h2>
       <p>Fale com um especialista da DF Soluções e receba um diagnóstico gratuito do marketing da sua imobiliária.</p>
       <div class="btns">
-        <a href="https://wa.me/5511999999999?text=Olá,%20quero%20um%20diagnóstico%20gratuito%20para%20minha%20imobiliária." class="btn btn-wpp" target="_blank" rel="noopener">
+        <a href="https://wa.me/5511999999999?text=Olá,%20quero%20um%20diagnóstico%20gratuito%20para%20minha%20imobiliária." class="btn btn-wpp" target="_blank" rel="noopener" data-magnetic>
           <i class="fa-brands fa-whatsapp"></i> Diagnóstico gratuito
         </a>
-        <a href="index.html" class="btn btn-ghost">
+        <a href="index.html" class="btn btn-ghost" data-magnetic>
           <i class="fa-solid fa-arrow-left"></i> Voltar ao início
         </a>
       </div>
@@ -1121,7 +1092,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="logo.png" alt="DF Soluções">
-        <p>Agência de marketing digital especializada em odontologia e imobiliárias. Transformamos presença digital em faturamento real.</p>
+        <p>Agência de marketing digital especializada em odontologia e imobiliárias.</p>
       </div>
       <div class="footer-col">
         <h4>Especialidades</h4>
@@ -1152,34 +1123,9 @@
   </div>
 </footer>
 
-<script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
-
-const burger = document.getElementById('navBurger');
-const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-reveals.forEach(el => obs.observe(el));
-
-function updateCalc() {
-  const q = parseInt(document.getElementById('calcSlider').value);
-  const fat = q * 8000;
-  const profit = fat - 2500;
-  document.getElementById('calcNum').textContent = q;
-  document.getElementById('calcFat').textContent = 'R$ ' + fat.toLocaleString('pt-BR');
-  document.getElementById('calcProfit').textContent = 'R$ ' + profit.toLocaleString('pt-BR');
-}
-
-function toggleFaq(btn) {
-  btn.parentElement.classList.toggle('open');
-}
-</script>
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="effects.js"></script>
 
 </body>
 </html>
