@@ -381,3 +381,28 @@ window.updateCalcImob = function() {
   document.getElementById('calcFat').textContent = 'R$ ' + fat.toLocaleString('pt-BR');
   document.getElementById('calcProfit').textContent = 'R$ ' + profit.toLocaleString('pt-BR');
 };
+
+/* -------- 16. CONTACT FORM → WHATSAPP -------- */
+window.sendToWhatsApp = function(event, phone) {
+  event.preventDefault();
+  const form = event.target;
+  const nome = form.querySelector('[name="nome"]').value.trim();
+  const tel = form.querySelector('[name="telefone"]').value.trim();
+  const segmento = form.querySelector('[name="segmento"]') ? form.querySelector('[name="segmento"]').value : '';
+  const plano = form.querySelector('[name="plano"]') ? form.querySelector('[name="plano"]').value : '';
+  const msg = form.querySelector('[name="mensagem"]').value.trim();
+
+  if (!nome || !tel) { alert('Por favor preencha nome e telefone.'); return false; }
+
+  let texto = `Olá, DF Soluções! 👋\n\n`;
+  texto += `*Nome:* ${nome}\n`;
+  texto += `*Telefone:* ${tel}\n`;
+  if (segmento) texto += `*Segmento:* ${segmento}\n`;
+  if (plano)    texto += `*Plano de interesse:* ${plano}\n`;
+  if (msg)      texto += `\n*Mensagem:*\n${msg}\n`;
+  texto += `\n_Enviado pelo site dfpublicidade.com.br_`;
+
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(texto)}`;
+  window.open(url, '_blank');
+  return false;
+};

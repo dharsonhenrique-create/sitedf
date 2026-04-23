@@ -332,7 +332,7 @@
   <div class="orb orb-3"></div>
 </div>
 
-<a href="https://wa.me/5511999999999?text=Olá,%20vim%20pelo%20site%20da%20DF%20Soluções." class="float-wpp" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a href="https://wa.me/5511958053699?text=Olá,%20vim%20pelo%20site%20da%20DF%20Soluções." class="float-wpp" target="_blank" rel="noopener" aria-label="WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
@@ -350,7 +350,7 @@
     <a href="imobiliaria.html" class="nav-link">Imobiliária</a>
     <a href="#contato" class="nav-link">Contato</a>
   </div>
-  <a href="https://wa.me/5511999999999?text=Olá,%20vim%20pelo%20site." class="nav-cta" target="_blank" rel="noopener" data-magnetic>
+  <a href="https://wa.me/5511958053699?text=Olá,%20vim%20pelo%20site." class="nav-cta" target="_blank" rel="noopener" data-magnetic>
     <i class="fa-brands fa-whatsapp"></i> Falar agora
   </a>
   <button class="nav-burger" id="navBurger" aria-label="Menu">
@@ -729,7 +729,7 @@
       <h2>Vamos conversar<br>sobre o seu negócio?</h2>
       <p>Receba um diagnóstico gratuito do seu marketing atual. Sem compromisso, sem enrolação — só estratégia direta ao ponto.</p>
       <div class="btns">
-        <a href="https://wa.me/5511999999999?text=Olá,%20quero%20um%20diagnóstico%20gratuito." class="btn btn-wpp" target="_blank" rel="noopener" data-magnetic>
+        <a href="https://wa.me/5511958053699?text=Olá,%20quero%20um%20diagnóstico%20gratuito." class="btn btn-wpp" target="_blank" rel="noopener" data-magnetic>
           <i class="fa-brands fa-whatsapp"></i> Diagnóstico gratuito
         </a>
         <a href="mailto:contato@dfpublicidade.com.br" class="btn btn-ghost" data-magnetic>
@@ -737,6 +737,54 @@
         </a>
       </div>
     </div>
+
+    <!-- FORMULÁRIO → WHATSAPP -->
+    <form class="contact-form reveal" onsubmit="return sendToWhatsApp(event, '5511958053699')">
+      <div class="cf-intro">
+        <div class="cf-intro-ico"><i class="fa-brands fa-whatsapp"></i></div>
+        <div>
+          <h3>Prefere preencher um formulário?</h3>
+          <p>Seus dados vão direto para nosso WhatsApp — respondemos em horário comercial.</p>
+        </div>
+      </div>
+      <div class="cf-grid">
+        <div class="cf-field">
+          <label>Seu nome <span class="req">*</span></label>
+          <input type="text" name="nome" placeholder="Como devemos te chamar?" required>
+        </div>
+        <div class="cf-field">
+          <label>Telefone / WhatsApp <span class="req">*</span></label>
+          <input type="tel" name="telefone" placeholder="(11) 90000-0000" required>
+        </div>
+        <div class="cf-field">
+          <label>Seu segmento</label>
+          <select name="segmento">
+            <option value="">Selecione...</option>
+            <option value="Odontologia">Clínica Odontológica</option>
+            <option value="Imobiliária">Imobiliária ou Corretor</option>
+            <option value="Outro">Outro segmento</option>
+          </select>
+        </div>
+        <div class="cf-field">
+          <label>Plano de interesse</label>
+          <select name="plano">
+            <option value="">Ainda não decidi</option>
+            <option value="Lite Orgânico (R$ 1.200)">Lite Orgânico — R$ 1.200</option>
+            <option value="Lite Tráfego Pago (R$ 1.200)">Lite Tráfego Pago — R$ 1.200</option>
+            <option value="Prata (R$ 1.900)">Prata — R$ 1.900</option>
+            <option value="Premium (R$ 2.500)">Premium — R$ 2.500</option>
+          </select>
+        </div>
+        <div class="cf-field full">
+          <label>Mensagem (opcional)</label>
+          <textarea name="mensagem" placeholder="Conta um pouco sobre seu negócio e o que você precisa..."></textarea>
+        </div>
+        <button type="submit" class="cf-submit" data-magnetic>
+          <i class="fa-brands fa-whatsapp"></i> Enviar pelo WhatsApp
+        </button>
+        <p class="cf-note"><i class="fa-solid fa-shield-halved"></i> Seus dados não são armazenados. O envio abre diretamente no WhatsApp.</p>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -762,7 +810,7 @@
       </div>
       <div class="footer-col">
         <h4>Contato</h4>
-        <p><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> (11) 99999-9999</p>
+        <p><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> (11) 95805-3699</p>
         <p><i class="fa-solid fa-envelope" style="color:var(--roxo)"></i> contato@dfpublicidade.com.br</p>
         <p><i class="fa-solid fa-globe" style="color:var(--roxo)"></i> dfpublicidade.com.br</p>
       </div>
