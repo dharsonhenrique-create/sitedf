@@ -64,7 +64,16 @@
   });
 
   let scrollOffset = 0;
-  window.addEventListener('scroll', () => { scrollOffset = window.scrollY * 0.0008; });
+  let scrollProgress = 0;
+  let currentBlur = 0;
+  function updateScrollMetrics() {
+    scrollOffset = window.scrollY * 0.0008;
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    scrollProgress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+  }
+  window.addEventListener('scroll', updateScrollMetrics, { passive: true });
+  window.addEventListener('resize', updateScrollMetrics);
+  updateScrollMetrics();
 
   let t = 0;
   function animate() {
@@ -82,6 +91,14 @@
     camera.position.y = -ty * 0.4;
     camera.position.z = 8 - scrollOffset;
     camera.lookAt(0, 0, 0);
+
+    // Progressive depth-of-field blur — clear at top, blurred at bottom
+    // Starts fading in after 18% of scroll, hits max at 90%
+    const eased = Math.max(0, Math.min(1, (scrollProgress - 0.18) / 0.72));
+    const targetBlur = eased * eased * 11; // ease-in curve, max 11px
+    currentBlur += (targetBlur - currentBlur) * 0.08;
+    canvas.style.filter = currentBlur < 0.05 ? 'none' : `blur(${currentBlur.toFixed(2)}px)`;
+
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
   }
