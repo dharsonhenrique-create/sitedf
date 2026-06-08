@@ -317,9 +317,10 @@
 /* DEPOIMENTOS EM VÍDEO */
 .vt-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 300px));
+  gap: 28px;
   margin-top: 16px;
+  justify-content: center;
 }
 .vt-card {
   position: relative;
@@ -348,6 +349,17 @@
   margin-bottom: 4px;
 }
 .vt-role { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.vt-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--lilac);
+  text-decoration: none;
+}
+.vt-ig:hover { color: var(--lav); }
 .vt-quote { font-size: 13px; color: var(--lilac); margin-top: 10px; font-style: italic; line-height: 1.5; }
 .vt-cta-wrap { text-align: center; margin-top: 44px; }
 @media (max-width: 900px) {
@@ -771,39 +783,29 @@
     </div>
 
     <div class="vt-grid">
-      <!-- DEPOIMENTO 1 — substitua nome/cargo pelos dados reais -->
+      <!-- DEPOIMENTO — Dra. Amanda Espinosa -->
       <figure class="vt-card reveal">
-        <video class="vt-video" controls preload="none" playsinline poster="depoimento-1.jpg">
-          <source src="depoimento-1.mp4" type="video/mp4">
-          Seu navegador não suporta a reprodução de vídeo.
-        </video>
-        <figcaption class="vt-meta">
-          <div class="vt-name">Nome do cliente</div>
-          <div class="vt-role">Cargo · Empresa ou cidade</div>
-        </figcaption>
-      </figure>
-
-      <!-- DEPOIMENTO 2 -->
-      <figure class="vt-card reveal reveal-delay-1">
         <video class="vt-video" controls preload="none" playsinline poster="depoimento-2.jpg">
           <source src="depoimento-2.mp4" type="video/mp4">
           Seu navegador não suporta a reprodução de vídeo.
         </video>
         <figcaption class="vt-meta">
-          <div class="vt-name">Nome do cliente</div>
-          <div class="vt-role">Cargo · Empresa ou cidade</div>
+          <div class="vt-name">Dra. Amanda Espinosa</div>
+          <div class="vt-role">Dona da Oral Sin Implantes (Castanhal) e da Clínica de Estética Dra. Amanda Espinosa</div>
+          <a class="vt-ig" href="https://www.instagram.com/draamandaespinosa" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> @draamandaespinosa</a>
         </figcaption>
       </figure>
 
-      <!-- DEPOIMENTO 3 -->
-      <figure class="vt-card reveal reveal-delay-2">
+      <!-- DEPOIMENTO — Dr. Murilo -->
+      <figure class="vt-card reveal reveal-delay-1">
         <video class="vt-video" controls preload="none" playsinline poster="depoimento-3.jpg">
           <source src="depoimento-3.mp4" type="video/mp4">
           Seu navegador não suporta a reprodução de vídeo.
         </video>
         <figcaption class="vt-meta">
-          <div class="vt-name">Nome do cliente</div>
-          <div class="vt-role">Cargo · Empresa ou cidade</div>
+          <div class="vt-name">Dr. Murilo</div>
+          <div class="vt-role">Dono da Clínica Real Odontologia · Sócio de outras 3 clínicas odontológicas franqueadas</div>
+          <a class="vt-ig" href="https://www.instagram.com/clinica.odontologiareal" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> @clinica.odontologiareal</a>
         </figcaption>
       </figure>
     </div>
