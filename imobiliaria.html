@@ -31,10 +31,10 @@
     "@type": "OfferCatalog",
     "name": "Planos DF Soluções Imobiliária",
     "itemListElement": [
-      {"@type": "Offer", "name": "Lite Orgânico", "price": "1200", "priceCurrency": "BRL"},
-      {"@type": "Offer", "name": "Lite Tráfego Pago", "price": "1200", "priceCurrency": "BRL"},
-      {"@type": "Offer", "name": "Prata", "price": "1900", "priceCurrency": "BRL"},
-      {"@type": "Offer", "name": "Premium", "price": "2500", "priceCurrency": "BRL"}
+      {"@type": "Offer", "name": "Lite Orgânico", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://www.dfpublicidade.com.br/imobiliaria.html#planos"},
+      {"@type": "Offer", "name": "Lite Tráfego Pago", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://www.dfpublicidade.com.br/imobiliaria.html#planos"},
+      {"@type": "Offer", "name": "Prata", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://www.dfpublicidade.com.br/imobiliaria.html#planos"},
+      {"@type": "Offer", "name": "Premium", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://www.dfpublicidade.com.br/imobiliaria.html#planos"}
     ]
   }
 }
@@ -414,6 +414,20 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.plan-price-custom {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--lilac);
+  margin-bottom: 12px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.plan-price-custom i { font-size: 16px; }
+.plan.premium .plan-price-custom { color: var(--lav); }
 .plan-desc {
   font-size: 14px;
   color: var(--muted);
@@ -927,7 +941,7 @@
       <div class="plan reveal" data-tilt>
         <div class="tilt-glow"></div>
         <div class="plan-name">Lite Orgânico</div>
-        <div class="plan-price"><span class="currency">R$</span><span class="amount">1.200</span><span class="period">/mês</span></div>
+        <div class="plan-price-custom"><i class="fa-solid fa-pen-ruler"></i> Sob medida</div>
         <p class="plan-desc">Presença profissional nas redes sociais para construir autoridade no mercado local.</p>
         <ul class="plan-features">
           <li><i class="fa-solid fa-check"></i> Gestão de Instagram e Facebook</li>
@@ -937,13 +951,13 @@
           <li class="off"><i class="fa-solid fa-xmark"></i> Tráfego pago</li>
           <li class="off"><i class="fa-solid fa-xmark"></i> Mentoria comercial</li>
         </ul>
-        <a href="https://wa.me/5511958053699?text=Quero%20o%20plano%20Lite%20Orgânico%20para%20minha%20imobiliária." class="plan-cta outline" target="_blank" rel="noopener" data-magnetic>Selecionar Lite</a>
+        <a href="https://wa.me/5511958053699?text=Quero%20um%20orçamento%20personalizado%20do%20plano%20Lite%20Orgânico%20para%20minha%20imobiliária." class="plan-cta outline" target="_blank" rel="noopener" data-magnetic>Fazer orçamento personalizado</a>
       </div>
 
       <div class="plan reveal" data-tilt>
         <div class="tilt-glow"></div>
         <div class="plan-name">Lite Tráfego Pago</div>
-        <div class="plan-price"><span class="currency">R$</span><span class="amount">1.200</span><span class="period">/mês</span></div>
+        <div class="plan-price-custom"><i class="fa-solid fa-pen-ruler"></i> Sob medida</div>
         <p class="plan-desc">Leads chegando todo dia via Meta Ads. Foco em captação ativa de compradores e locatários.</p>
         <ul class="plan-features">
           <li><i class="fa-solid fa-check"></i> Gestão de Meta Lead Ads</li>
@@ -953,14 +967,14 @@
           <li class="off"><i class="fa-solid fa-xmark"></i> Feed orgânico</li>
           <li class="off"><i class="fa-solid fa-xmark"></i> Mentoria comercial</li>
         </ul>
-        <a href="https://wa.me/5511958053699?text=Quero%20o%20plano%20Lite%20Tráfego%20Pago%20para%20minha%20imobiliária." class="plan-cta outline" target="_blank" rel="noopener" data-magnetic>Selecionar Ads</a>
+        <a href="https://wa.me/5511958053699?text=Quero%20um%20orçamento%20personalizado%20do%20plano%20Lite%20Tráfego%20Pago%20para%20minha%20imobiliária." class="plan-cta outline" target="_blank" rel="noopener" data-magnetic>Fazer orçamento personalizado</a>
       </div>
 
       <div class="plan featured reveal" data-tilt>
         <div class="tilt-glow"></div>
         <div class="plan-ribbon">★ Mais escolhido</div>
         <div class="plan-name">Prata</div>
-        <div class="plan-price"><span class="currency">R$</span><span class="amount">1.900</span><span class="period">/mês</span></div>
+        <div class="plan-price-custom"><i class="fa-solid fa-pen-ruler"></i> Sob medida</div>
         <p class="plan-desc">Orgânico + Tráfego Pago + Mentoria. O combo equilibrado para crescimento consistente.</p>
         <ul class="plan-features">
           <li><i class="fa-solid fa-check"></i> <strong>Tudo do Lite Orgânico</strong></li>
@@ -969,14 +983,14 @@
           <li><i class="fa-solid fa-check"></i> Atendimento full time</li>
           <li><i class="fa-solid fa-check"></i> Mentoria comercial</li>
         </ul>
-        <a href="https://wa.me/5511958053699?text=Quero%20o%20plano%20Prata%20para%20minha%20imobiliária." class="plan-cta solid" target="_blank" rel="noopener" data-magnetic>Quero o Prata</a>
+        <a href="https://wa.me/5511958053699?text=Quero%20um%20orçamento%20personalizado%20do%20plano%20Prata%20para%20minha%20imobiliária." class="plan-cta solid" target="_blank" rel="noopener" data-magnetic>Fazer orçamento personalizado</a>
       </div>
 
       <div class="plan premium reveal" data-tilt>
         <div class="tilt-glow"></div>
         <div class="plan-ribbon">🏆 Dominância</div>
         <div class="plan-name">Premium</div>
-        <div class="plan-price"><span class="currency">R$</span><span class="amount">2.500</span><span class="period">/mês</span></div>
+        <div class="plan-price-custom"><i class="fa-solid fa-pen-ruler"></i> Sob medida</div>
         <p class="plan-desc">Google + Meta + TikTok Ads, landing pages, dashboard em tempo real e demandas ilimitadas.</p>
         <ul class="plan-features">
           <li><i class="fa-solid fa-check"></i> <strong>Tudo do Prata</strong></li>
@@ -985,13 +999,13 @@
           <li><i class="fa-solid fa-infinity"></i> Solicitações ilimitadas</li>
           <li><i class="fa-solid fa-check"></i> Dashboard em tempo real</li>
         </ul>
-        <a href="https://wa.me/5511958053699?text=Quero%20o%20plano%20Premium%20para%20dominar%20meu%20mercado%20imobiliário." class="plan-cta solid" target="_blank" rel="noopener" data-magnetic>Dominar mercado</a>
+        <a href="https://wa.me/5511958053699?text=Quero%20um%20orçamento%20personalizado%20do%20plano%20Premium%20para%20dominar%20meu%20mercado%20imobiliário." class="plan-cta solid" target="_blank" rel="noopener" data-magnetic>Fazer orçamento personalizado</a>
       </div>
     </div>
 
     <p style="text-align:center; margin-top:32px; font-size:14px; color:var(--muted);">
       <i class="fa-solid fa-circle-info" style="color:var(--roxo); margin-right:6px;"></i>
-      Valores referentes à gestão. O investimento em anúncios nas plataformas (Google, Meta, TikTok) é pago diretamente pelo cliente.
+      Cada projeto recebe um orçamento personalizado conforme suas necessidades. O investimento em anúncios nas plataformas (Google, Meta, TikTok) é pago diretamente pelo cliente.
     </p>
   </div>
 </section>

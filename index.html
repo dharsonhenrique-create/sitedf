@@ -313,6 +313,46 @@
   .niche-card { padding: 40px 28px 32px; min-height: auto; }
   .niche-card-bg { font-size: 90px; }
 }
+
+/* DEPOIMENTOS EM VÍDEO */
+.vt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+.vt-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.vt-card:hover { border-color: rgba(139, 92, 246, 0.4); transform: translateY(-4px); }
+.vt-video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: #000;
+  display: block;
+}
+.vt-meta { padding: 18px 20px 22px; border-top: 1px solid var(--border); }
+.vt-name {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.vt-role { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.vt-quote { font-size: 13px; color: var(--lilac); margin-top: 10px; font-style: italic; line-height: 1.5; }
+.vt-cta-wrap { text-align: center; margin-top: 44px; }
+@media (max-width: 900px) {
+  .vt-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+}
 </style>
 </head>
 <body>
@@ -721,6 +761,61 @@
   </div>
 </section>
 
+<!-- DEPOIMENTOS EM VÍDEO -->
+<section class="section" id="depoimentos">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Depoimentos</div>
+      <h2 class="display display-md">Quem confia na<br>DF Soluções.</h2>
+      <p>Resultados reais, na voz de quem vive o dia a dia do próprio negócio. Toque no play para assistir.</p>
+    </div>
+
+    <div class="vt-grid">
+      <!-- DEPOIMENTO 1 — substitua nome/cargo pelos dados reais -->
+      <figure class="vt-card reveal">
+        <video class="vt-video" controls preload="none" playsinline poster="videos/depoimento-1.jpg">
+          <source src="videos/depoimento-1.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeo.
+        </video>
+        <figcaption class="vt-meta">
+          <div class="vt-name">Nome do cliente</div>
+          <div class="vt-role">Cargo · Empresa ou cidade</div>
+        </figcaption>
+      </figure>
+
+      <!-- DEPOIMENTO 2 -->
+      <figure class="vt-card reveal reveal-delay-1">
+        <video class="vt-video" controls preload="none" playsinline poster="videos/depoimento-2.jpg">
+          <source src="videos/depoimento-2.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeo.
+        </video>
+        <figcaption class="vt-meta">
+          <div class="vt-name">Nome do cliente</div>
+          <div class="vt-role">Cargo · Empresa ou cidade</div>
+        </figcaption>
+      </figure>
+
+      <!-- DEPOIMENTO 3 -->
+      <figure class="vt-card reveal reveal-delay-2">
+        <video class="vt-video" controls preload="none" playsinline poster="videos/depoimento-3.jpg">
+          <source src="videos/depoimento-3.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeo.
+        </video>
+        <figcaption class="vt-meta">
+          <div class="vt-name">Nome do cliente</div>
+          <div class="vt-role">Cargo · Empresa ou cidade</div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="vt-cta-wrap">
+      <a href="https://wa.me/5511958053699?text=Olá,%20vi%20os%20depoimentos%20e%20quero%20um%20orçamento%20personalizado." class="btn btn-wpp" target="_blank" rel="noopener" data-magnetic>
+        <i class="fa-brands fa-whatsapp"></i> Quero resultados assim
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="section" id="contato">
   <div class="section-number">06 / 06</div>
@@ -769,10 +864,10 @@
           <label>Plano de interesse</label>
           <select name="plano">
             <option value="">Ainda não decidi</option>
-            <option value="Lite Orgânico (R$ 1.200)">Lite Orgânico — R$ 1.200</option>
-            <option value="Lite Tráfego Pago (R$ 1.200)">Lite Tráfego Pago — R$ 1.200</option>
-            <option value="Prata (R$ 1.900)">Prata — R$ 1.900</option>
-            <option value="Premium (R$ 2.500)">Premium — R$ 2.500</option>
+            <option value="Lite Orgânico">Lite Orgânico</option>
+            <option value="Lite Tráfego Pago">Lite Tráfego Pago</option>
+            <option value="Prata">Prata</option>
+            <option value="Premium">Premium</option>
           </select>
         </div>
         <div class="cf-field full">
